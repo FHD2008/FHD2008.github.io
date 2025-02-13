@@ -20,11 +20,13 @@ function draw() {
   drawClouds(500,50);
   drawClouds(300,100);
   drawClouds(100,50);
+  drawCharacter();
   fill("red");
   text(mouseX + ", " + mouseY, mouseX, mouseY);
 }
 
 function drawGround() {       // Draws the ground
+  rectMode(CORNER);
   fill("limegreen")
   rect(0, height-100, width, 100 );
   fill("black");
@@ -55,6 +57,7 @@ function drawTree(x,y,s) {       // Draws the tree
   fill(0, 150, 50);
   circle(refX, refY, 70*scale);
   // tree trunk
+  rectMode(CORNER);
   fill("brown");
   rect(refX-10*scale, refY+20*scale, 20*scale, 60*scale);
   circle(refX, refY+10*scale, 30*scale);
@@ -65,6 +68,7 @@ function drawClouds(x, y){    // draws clouds
   let refY = y;
   noStroke();
   fill(236, 236, 236);
+  rectMode(CORNER)
   rect(refX, refY, 100, 10, 0, 0, 15, 5);
   circle(refX + 10, refY, 20);
   circle(refX + 20, refY-5, 20);
@@ -73,6 +77,10 @@ function drawClouds(x, y){    // draws clouds
   circle(refX + 60, refY, 20);
   circle(refX + 70, refY-3, 20);
   circle(refX + 80, refY-5, 22);
-  circle(refX + 90, refY, 20);
-    
+  circle(refX + 90, refY, 20);    
+}
+function drawCharacter(){
+  let refX = 350;
+  let refY = 330;
+  
 }
