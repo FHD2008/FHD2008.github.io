@@ -99,5 +99,5 @@ function drawCharacter(){
   rect(refX+10, refY+35, 5, 35);
   //arm
   rect(refX+10, refY+5, 5, 22);
-  
+  //
 }
