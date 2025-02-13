@@ -27,7 +27,7 @@ function draw() {
 
 function drawGround() {       // Draws the ground
   rectMode(CORNER);
-  fill("limegreen")
+  fill("forestgreen")
   rect(0, height-100, width, 100 );
   fill("black");
   rect(0, height-100, width, 5);
@@ -81,6 +81,23 @@ function drawClouds(x, y){    // draws clouds
 }
 function drawCharacter(){
   let refX = 350;
-  let refY = 330;
+  let refY = 310;
+  //leg
+  fill(0,255,255);
+  rect(refX+2, refY+35, 5, 35);
+  //chest
+  fill("white");
+  rect(refX, refY, 20, 40);
+  //head
+  fill("black");
+  circle(refX+10, refY-15, 20);
+  //backpack
+  fill("yellow");
+  rect(refX+20, refY, 10, 20);
+  //leg
+  fill(0, 255, 255);
+  rect(refX+10, refY+35, 5, 35);
+  //arm
+  rect(refX+10, refY+5, 5, 22);
   
 }
