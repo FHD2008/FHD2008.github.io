@@ -64,8 +64,8 @@ function drawTree(x,y,s) {       // Draws the tree
 }
 
 function drawClouds(x, y){    // draws clouds
-  let refX = x;
-  let refY = y;
+  let refX = x; // it sets the x postion of clouds
+  let refY = y; // it sets the y postion of clouds
   noStroke();
   fill(236, 236, 236);
   rectMode(CORNER)
@@ -80,8 +80,8 @@ function drawClouds(x, y){    // draws clouds
   circle(refX + 90, refY, 20);    
 }
 function drawCharacter(){
-  let refX = 350;
-  let refY = 310;
+  let refX = 350; // it sets the x postion of character
+  let refY = 310; // it sets the y postion of character
   //leg
   fill(0,255,255);
   rect(refX+2, refY+35, 5, 35);
@@ -99,5 +99,4 @@ function drawCharacter(){
   rect(refX+10, refY+35, 5, 35);
   //arm
   rect(refX+10, refY+5, 5, 22);
-  //
 }
