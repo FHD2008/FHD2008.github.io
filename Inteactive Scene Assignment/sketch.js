@@ -54,10 +54,10 @@ function draw() {
   refXchar = mouseX-50; // moves the character horizontally with mouse
   refYchar = mouseY-50; // moves the character vertically with mouse
   if (refYchar <= 290){
-    refYchar = 290;
+    refYchar = 290;                   // setting boundary for character
   }
   if (refYchar >= height-40){
-    refYchar = height-40;
+    refYchar = height-40;             // setting boundary for character
   }
 
   textSize(20);
