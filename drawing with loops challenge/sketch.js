@@ -57,3 +57,6 @@ function circlesAroundBorder(){
     circle(width, y, d);
   }
 }
+function lineFromCircle(){
+  
+}
