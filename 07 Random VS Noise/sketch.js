@@ -39,7 +39,7 @@ function noiseNumbers(){
     randomNum = round(randomNum);
 
     fill(140,220,140); noStroke();
-    circle(x, 400, randomNum);  //y=== height*0.66
+    rect(x, 400, 20, randomNum);  //y=== height*0.66
     fill(0);
     text(randomNum, x, 400);    // y === height*0.66
     x += 30;
