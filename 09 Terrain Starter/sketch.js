@@ -4,17 +4,18 @@
 // March 3rd, 2025
 
 let rectWidth = 25;
+let rectHeight;
 let noiseStart = 5;
 let noiseTime;
-let noiseSpeed = 0.1;
+let noiseSpeed = 0.01;
 let heightLimit;
+let averageHeight = 0;
+let nRectangles = 0;     // number of rectangles
+let totalHeight = 0;     //total height of all rectangles
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   heightLimit = windowHeight-50;
-  noiseSpeed = random(0.01, 0.06);
-  noiseTime = noiseStart;
-  drawTerrain();
 }
 
 function drawTerrain(){
@@ -22,18 +23,20 @@ function drawTerrain(){
   //several rectangles side to side
   // to look like some 2d terrain
   rectMode(CORNERS);
-
+  fill("Black")
+  nRectangles = 0;
+  totalHeight = 0;
   for (let x=0; x<width; x+=rectWidth){
-    //generate a random height.
-    //change this from using random() to noise()
-    //let rectHeight = random(50,500);
-    let rectHeight = noise(noiseTime);
-    rectHeight = map(rectHeight, 0,1, 50, heightLimit);
+    rectHeight = noise(noiseTime);    //random number assigned to height of rectangle 
+    rectHeight = map(rectHeight, 0, 1, 50, heightLimit);
     rectHeight =  round(rectHeight);
     //calculate the other corner of our rectangle
     let x2= x+rectWidth;
     let y2 = height - rectHeight;
-
+    //variables to calculate avg height
+    totalHeight += rectHeight;
+    nRectangles++;
+    //draw the rectangles
     rect(x,height,x2, y2);
     noiseTime += noiseSpeed;
   }
@@ -42,8 +45,12 @@ function drawTerrain(){
 }
 
 function draw() {
- drawFlag(100, 100);
- //text(mouseX + "," + mouseY + " " + mouseButton, mouseX, mouseY);
+  noiseTime = noiseStart;
+  background(255);
+  drawFlag(100, 100);
+  drawTerrain();
+  calcAvgHeight()
+  noiseStart += 0.02;
 }
 
 function keyPressed() {
@@ -55,8 +62,8 @@ function keyPressed() {
   }
   else if (keyCode === LEFT_ARROW) {
     rectWidth -= 5;
-    if (rectWidth <= 10){
-      rectWidth = 10;
+    if (rectWidth <= 5){
+      rectWidth = 5;
     }
   }
   background(255);
@@ -64,7 +71,16 @@ function keyPressed() {
 }
 
 function drawFlag(x,y){
+  let flagBottomWidth = 10;
+  x = x - flagBottomWidth/2;
+
+}
+
+function calcAvgHeight(){
+  averageHeight = totalHeight/nRectangles;
   rectMode(CORNERS);
+  fill("RED");
+  rect(0, height-averageHeight, width, (height-averageHeight)+10);
 }
 
 
