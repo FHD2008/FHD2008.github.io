@@ -47,10 +47,11 @@ function drawTerrain(){
 function draw() {
   noiseTime = noiseStart;
   background(255);
-  drawFlag(100, 100);
+  drawFlag(10, 30);
   drawTerrain();
   calcAvgHeight()
   noiseStart += 0.02;
+  
 }
 
 function keyPressed() {
@@ -66,14 +67,13 @@ function keyPressed() {
       rectWidth = 5;
     }
   }
-  background(255);
   drawTerrain();
 }
 
 function drawFlag(x,y){
-  let flagBottomWidth = 10;
-  x = x - flagBottomWidth/2;
-
+  let flagBaseWidth = 3
+  let flagHeight = 50
+  rect(x-flagBaseWidth/2, y-flagHeight, flagBaseWidth, flagHeight)
 }
 
 function calcAvgHeight(){
@@ -81,6 +81,7 @@ function calcAvgHeight(){
   rectMode(CORNERS);
   fill("RED");
   rect(0, height-averageHeight, width, (height-averageHeight)+10);
+  rectMode(CORNER);
 }
 
 
