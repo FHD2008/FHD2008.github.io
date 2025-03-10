@@ -1,9 +1,8 @@
-// Starter code for our
 // Terrain Generation Project
 // Fahad Hussain
 // March 3rd, 2025
 
-let rectWidth = 25;
+let rectWidth = 20;
 let rectHeight;
 let noiseStart = 5;
 let noiseTime;
@@ -12,6 +11,7 @@ let heightLimit;
 let averageHeight = 0;
 let nRectangles = 0;     // number of rectangles
 let totalHeight = 0;     //total height of all rectangles
+let highestPeak;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -26,9 +26,11 @@ function drawTerrain(){
   fill("Black")
   nRectangles = 0;
   totalHeight = 0;
+  highestPeak = heightLimit;
+  let highX;
   for (let x=0; x<width; x+=rectWidth){
     rectHeight = noise(noiseTime);    //random number assigned to height of rectangle 
-    rectHeight = map(rectHeight, 0, 1, 50, heightLimit);
+    rectHeight = map(rectHeight, 0, 1, 0, heightLimit);
     rectHeight =  round(rectHeight);
     //calculate the other corner of our rectangle
     let x2= x+rectWidth;
@@ -38,19 +40,24 @@ function drawTerrain(){
     nRectangles++;
     //draw the rectangles
     rect(x,height,x2, y2);
+    //check highest point
+    if(rectHeight <  highestPeak){
+      highestPeak = rectHeight;
+      highX = x;
+    }
     noiseTime += noiseSpeed;
   }
-
   rectMode(CORNER);
+  drawFlag(highX, highestPeak);
+  
 }
 
 function draw() {
   noiseTime = noiseStart;
   background(255);
-  drawFlag(10, 30);
   drawTerrain();
   calcAvgHeight()
-  noiseStart += 0.02;
+  noiseStart += 0.01;
   
 }
 
@@ -72,8 +79,12 @@ function keyPressed() {
 
 function drawFlag(x,y){
   let flagBaseWidth = 3
-  let flagHeight = 50
-  rect(x-flagBaseWidth/2, y-flagHeight, flagBaseWidth, flagHeight)
+  let flagPoleHeight = 50
+
+  fill("GREY");
+  rect(x-flagBaseWidth/2, y-flagPoleHeight, flagBaseWidth, flagPoleHeight);
+  fill("GREEN");
+  rect(x-flagBaseWidth/2, y-flagPoleHeight, 20, 15);
 }
 
 function calcAvgHeight(){
