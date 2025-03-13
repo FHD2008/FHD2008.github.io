@@ -14,14 +14,22 @@ let myBook;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  myBook = new Book("CS30 Text", "P.H.D. Maqluba",
-    1234567891011, "leatherbound",
-    1000, width*0.3, height*0.5, 200);
-  myBook.printOut();
+  // myBook = new Book("CS30 Text", "P.H.D. Maqluba",
+  //   1234567891011, "leatherbound",
+  //   1000, width*0.3, height*0.5, 200);
+  // myBook.printOut();
+  
+  //Make 20 books in a row
+  let x=50;
+  let covers = ["softcover", "hardcover", "leatherbound"];
+  for(let i = 0; i<20; i++){
+    let choice = int(random(3));
+  }
 }
 
 function draw() {
   background(220);
+  drawTwentyBooks();
   myBook.display();
 }
 
@@ -70,3 +78,12 @@ class Book{
     print("ISBN: " + this.ISBN)
   }
 }
+// function drawTwentyBooks(){
+//   let titles = ["A", "B", "C", "D", "E", "F", "G",
+//                 "H", "I", "J", "K", "L", "M", "N",
+//                 "O", "P", "Q", "R", "T", "S"]
+//   for (let i in titles){
+//     myBook = new Book(i, "idk", "#123", "hardcover", 500, i+50, height/2, 100);
+//   }
+
+// }
