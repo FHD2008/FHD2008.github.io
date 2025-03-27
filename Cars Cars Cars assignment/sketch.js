@@ -4,91 +4,146 @@
 // 
 
 let car;
+let eastBound=[];
+let westBound= [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  car = new Vehicle(0);
+  
+  for (let i = 0; i<20; i++){
+    eastBound.push(new Vehicle(0, random(height/4, height/2 -40)));
+  }
+  for (let i = 0; i<20; i++){
+    westBound.push(new Vehicle(1, random(height/2, 3*height/4 - 40)));
+  }
 }
 
 function draw() {
   background(220);
   drawRoad();
-  car.display();
+  for (let i of eastBound){
+    i.action();
+  }
+  for (let i of westBound){
+    i.action();
+  }
+
 }
 
 class Vehicle{
   //1. Constructor
-  constructor(dir){
+  constructor(dir, y){
     this.x = random(width);
-    this.y = 
+    this.y = y
     this.direction = dir;
-    this.xspeed;
+    this.xSpeed = 5
     this.type = int(random(0,2));
     this.color = color(random(255), random(255), random(255));
   }
 
   display(){
-    this.y = 600;
-    let tireWidth = 15;
+    let tireWidth = 10;
     if(this.type === 0){
        fill(this.color);
+       push();
+       translate(this.x, this.y);
+       if (this.direction === 0){
+        scale(-1,1);
+       }
+       
        //body
-       rect(this.x, this.y, 70, 30, 5, 0, 0, 5);
+       rect(0, 0, 70, 30, 5, 0, 0, 5);
        //roof
-       rect(this.x+25, this.y+6, 30, 18, 0,4,4,0);
+       rect(0+25, 0+2.5, 30, 25, 0,4,4,0);
        //windsheild
        fill("skyblue");
-       rect(this.x + 17, this.y + 6, 8, 18, 4, 0, 0, 4);
+       rect(0+17, 0 + 3.5, 8, 23, 4, 0, 0, 4);
        fill(80, 80, 80);
        //wheels
-       rect(this.x+5 , this.y - 2, tireWidth, 2);
-       rect(this.x + 50, this.y -2, tireWidth, 2);
-       rect(this.x + 5, this.y + 30, tireWidth, 2);
-       rect(this.x + 50, this.y + 30, tireWidth, 2);
+       rect(0+7 , 0 - 2, tireWidth, 2);
+       rect(0 + 55, 0 -2, tireWidth, 2);
+       rect(0 + 7, 0 + 30, tireWidth, 2);
+       rect(0 + 55, 0 + 30, tireWidth, 2);
        //headlights
        fill("white");
-       circle(this.x, this.y + 8, 3);
-       circle(this.x, this.y+22, 3);
+       circle(0, 0 + 8, 3);
+       circle(0, 0+22, 3);
        //tailligths
        fill("red");
-       rect(this.x + 68, this.y + 5, 2, 8);
-       rect(this.x+68, this.y + 18, 2, 8);
+       rect(0 + 67, 0 + 2, 2, 6, 5,0,0,0);
+       rect(0+67, 0 + 22, 2, 6, 0,0,0,5);
+       pop();
     }
     
     else if(this.type === 1){
        tireWidth = 10;
        fill(this.color);
+       push();
+       translate(this.x,this.y)
+       if(this.direction === 0){
+        scale(-1,1);
+       }
        //body
-       rect(this.x, this.y, 70, 30, 3, 2, 2, 3);
+       rect(0, 0, 70, 30, 3, 2, 2, 3);
        //roof
        fill("grey");
-       rect(this.x+11, this.y-2.5, 57, 35);
+       rect(11, -2.5, 57, 35);
        //wheels
        
        //headlights
        fill("white");
-       circle(this.x, this.y + 8, 3);
-       circle(this.x, this.y+22, 3);
+       circle(0,  8, 3);
+       circle(0, 22, 3);
+       pop();
     }
   }
 
   move(){
+    if (this.direction === 0){
+      this.x += this.xSpeed;
+    }
+    if (this.direction === 1){
+      this.x -= this.xSpeed
+    }
 
   }
 
   speedUp(){
-
+    if (this.xSpeed < 15){
+      this.xSpeed += 1;
+    }
   }
 
   speedDown(){
-
+    if (this.xSpeed > 1){
+      this.xSpeed -= 1;
+    }
   }
 
   changeColor(){
-
+    this.color = color(random(255), random(255), random(255));
   }
 
   action(){
+    this.display();
+    
+    if (this.x < -60){
+      this.x = width;
+    }
+    if (this.x > width+60){
+      this.x = -60;
+    }
+    if (random(100) < 1){
+      this.speedUp();
+    }
+    if (random(100) < 1){
+      this.speedDown();
+    }
+    if (random(100) < 1){
+      this.changeColor();
+    }
+    this.move();
+
 
   }
 
