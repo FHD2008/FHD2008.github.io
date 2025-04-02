@@ -1,59 +1,74 @@
 // Cars Cars Cars
 // Fahad Hussain
-// March 21, Friday
-// 
+// March 21, Friday,2025
+// Make a traffic simulation whith cars moving in both
+// directions and also are behaving as signal light changes.
 
+let signalColor = "green";
 let car;
 let trafficLight;
 let eastBound=[];
 let westBound= [];
+let nFrame = 0; //frame counter for timer for red signal light
 
 function setup() { 
   createCanvas(windowWidth, windowHeight);
-  trafficLight = new TrafficLight(width-100, 100);
-  
+  trafficLight = new TrafficLight(width-100, 100);     //create new traffic light 
   for (let i = 0; i<20; i++){
-    eastBound.push(new Vehicle(0, random(height/4, height/2 -40)));
-    westBound.push(new Vehicle(1, random(height/2, 3*height/4 - 40)));
+    eastBound.push(new Vehicle(0, random(height/4, height/2 -40)));           //add 20 cars/trucks in east lane
+
+    westBound.push(new Vehicle(1, random(height/2, 3*height/4 - 40)));     //add 20 in west lane
   }
 } 
 
 function draw() {
-  nFrame = 0;
+  nFrame ++;
   background(220);
   drawRoad();
-  trafficLight.display();
-  for (let i of eastBound){
+  trafficLight.display();       //render traffic light
+
+  for (let i of eastBound){      //run everything in the cars going east
     i.action();
   }
-  for (let i of westBound){
+  for (let i of westBound){   //run everything in the cars going west
     i.action();
+  }
+
+  if (signalColor === "red" && nFrame >= 120){   //turns the red light back to green after 120 frames passed
+    trafficLight.turnGreen();
   }
 
 }
 
 function mousePressed(){
-  if (keyIsDown(SHIFT)){
+  if (keyIsDown(SHIFT)){    // adds new cars westbound when mouse clicked with shift pressed
     westBound.push(new Vehicle(1, random(height/2, 3*height/4 - 40)));
   }
-  else{
+  else{                     // adds new cars eastbound when mouse clicked without shift
     eastBound.push(new Vehicle(0, random(height/4, height/2 -40)));
   }
   
+}
+
+function keyPressed(){
+  if (keyCode === 32){      //on space bar press turn signal red
+    nFrame = 0;    //reset the frame counter
+    trafficLight.turnRed();
+  }
 }
 
 
 
 
 
-class Vehicle{
+class Vehicle{           // class for simulating trucks and cars.
   //1. Constructor
   constructor(dir, y){
     this.x = random(width);
     this.y = y
     this.direction = dir;
     this.xSpeed = 5
-    this.type = int(random(0,2));
+    this.type = int(random(0,2)); // 0 for car, 1 for truck
     this.color = color(random(255), random(255), random(255));
   }
   //display function renders everything in the canvas
@@ -115,10 +130,10 @@ class Vehicle{
   }
   //movement of cars and trucks
   move(){
-    if (this.direction === 0){
+    if (this.direction === 0){                //moving eastbound
       this.x += this.xSpeed;
     }
-    if (this.direction === 1){
+    if (this.direction === 1){               //moving westbound
       this.x -= this.xSpeed
     }
 
@@ -140,10 +155,10 @@ class Vehicle{
     this.color = color(random(255), random(255), random(255));
   }
 
-  action(){
-    //
+  action(){          //master function which runs all other funtions in class
+    //draws the cars and trucks
     this.display();
-    //wrap around
+    //wrap around the canvas 
     if (this.x < -60){
       this.x = width;
     }
@@ -160,37 +175,40 @@ class Vehicle{
     if (random(100) < 1){
       this.changeColor();
     }
-    //
+    //stop for red light
+    if (signalColor === "red"){
+      this.xSpeed = 0;
+    }
+    //moving
     this.move();
   }
 
 
 }
 
-class TrafficLight{
+class TrafficLight{     
   constructor(x,y){
     this.x = x;
     this.y = y;
-    this.signalColor = "green";
   }
 
-  display(){
+  display(){                             //display traffic light
     fill("black");
     rect(this.x, this.y, 28, 70, 4);
-    fill(this.signalColor);
-    if (this.signalColor === "green"){
-      circle(this.x + 14, this.y+55, 20);
+    fill(signalColor);
+    if (signalColor === "green"){
+      circle(this.x + 14, this.y+55, 20);   // green circle goes down
     }
-    if (this.signalColor === "red"){
-      circle(this.x + 14, this.y+15, 20);
+    if (signalColor === "red"){
+      circle(this.x + 14, this.y+15, 20);   //red circle goes up 
     }
   }
 
   turnRed(){
-    this.signalColor = "red";
+    signalColor = "red";
   }
   turnGreen(){
-    this.signalColor = "green";
+    signalColor = "green";
   }
 
   action(){
