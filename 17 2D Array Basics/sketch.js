@@ -4,9 +4,9 @@
 // Working with 2D Arrays, Visualizations
 
 let grid =
-  [[0, 60, 120, 180, 240],
-  [240, 180, 120, 60, 0],
-  [0, 200, 0, 200, 0]
+  [[0,   0, 255, 255, 0],
+  [255, 255, 0,  255, 0],
+  [ 0,   0,  0,  255, 0]
   ];
 
 let squareSize = 60;
@@ -40,19 +40,36 @@ function getCurrentX() {
   return floor(constrainedX / squareSize);
 }
 
-function checkForMouse() {
+function mousePressed() {
   //flip current tile to a random greyscale value
-  if (mouseIsPressed) {
-    let x = getCurrentX();
-    let y = getCurrentY();
-    grid[y][x] = floor(random(255));
-  }
+  //only do something if mouseX/mouseY are on the canvas...
 
+  let x = getCurrentX();
+  let y = getCurrentY();
+
+  //always: flip the "current" tile
+  if (keyIsDown(SHIFT)){
+    flip(x,y);
+  }
+  
+  else{
+    if (y>0) flip(x,y-1); //north
+    if (x>0) flip(x-1, y); //west
+    if (x<NUM_COLS-1) flip(x+1, y); //east
+    if (y<NUM_ROWS-1) flip(x, y+1); //south
+  }
+  //sometimes: (depending on position) flip the neighbours
+  
+}
+
+function flip(x,y){
+  //take a tile and invert its value
+  if(grid[y][x]=== 0) grid[y][x] = 255;
+  else grid[y][x] = 0;
 }
 
 function draw() {
   background(220);
   renderGrid();
-  checkForMouse();
 
 }
