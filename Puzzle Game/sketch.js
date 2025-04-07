@@ -1,9 +1,7 @@
-// Project Title
-// Your Name
-// Date
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// Puzzle game
+// Fahad Hussain
+// 7-4-2025
+
 
 
 let NUM_ROWS = 4;
@@ -74,6 +72,14 @@ function drawGrid(){
 }
 
 function checkForWin(){
-  
+  let win = false;
+  for (let x = 0; x < NUM_COLS ; x++){
+    for (let y = 0; y < NUM_ROWS; y++){
+      if(gridData[x][y] === 255){
+        win = true;
+      }
+    }
+  }
+  return win;
 }
 
