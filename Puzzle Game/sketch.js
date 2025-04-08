@@ -18,6 +18,7 @@ let gridData = [[0,0,0,0,0],
 function setup() {
   // Determine the size of each square. Could use windowHeight,windowHeight  for Canvas to keep a square aspect ratio
   createCanvas(windowWidth, windowHeight);
+  randomGrid();
   rectWidth = width/NUM_COLS;
   rectHeight = height/NUM_ROWS;
 }
@@ -26,6 +27,13 @@ function draw() {
   background(220);
   determineActiveSquare();   //figure out which tile the mouse cursor is over
   drawGrid();                //render the current game board to the screen (and the overlay)
+  if (checkForWin() === true){
+    fill("Green");
+    textSize(75);
+    textAlign(CENTER);
+    textFont("Times New Roman");
+    text("VICTORY!!", width/2, height/2);
+  }
 }
 
 
@@ -72,14 +80,21 @@ function drawGrid(){
 }
 
 function checkForWin(){
-  let win = false;
-  for (let x = 0; x < NUM_COLS ; x++){
-    for (let y = 0; y < NUM_ROWS; y++){
-      if(gridData[x][y] === 255){
-        win = true;
+  for (let y = 0; y < NUM_ROWS ; y++){
+    for (let x = 0; x < NUM_COLS; x++){
+      if(gridData[y][x] !== 255){
+        return false;
       }
     }
   }
-  return win;
+  return true;
+}
+
+function randomGrid(){
+  for (let y = 0; y < NUM_ROWS ; y++){
+    for (let x = 0; x < NUM_COLS; x++){
+      gridData[y][x] = random([0, 255]);
+    }
+  }
 }
 
