@@ -13,6 +13,7 @@ function setup() {
 }
 
 function draw() {
+  orbitControl()
   background(220);  //WEBGL has 0,0 at center
   lights();
   rotateX(-20);
