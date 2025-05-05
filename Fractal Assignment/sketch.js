@@ -22,7 +22,7 @@ function drawFractals(x,y,a,s){
   rotate(a);
   square(x,y,s);
   pop();
-  if(sizeSquare > 10){
+  if(s > 10){
     drawFractals(x,y,a+5, s/1.1);
   }
 }
