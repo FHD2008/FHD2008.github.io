@@ -2,27 +2,27 @@
 // Fahad Hussain
 // 16-4-2025
 
+let sizeSquare;
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  sizeSquare = width;
   angleMode(DEGREES)
 }
 
 function draw() {
   background(220);
-  diamondFractals(width/2, height/2, width/2, 45);
+  noFill();
+  drawFractals(0,0,20,sizeSquare);
 }
 
-function diamondFractals(x,y,s, a){
-  noFill();
-  rectMode(CENTER);
-  push();
-  translate(x, y);
+function drawFractals(x,y,a,s){
+  rectMode(CENTER)
+  push()
+  translate(width/2,height/2);
   rotate(a);
-  square(0, 0, s);
+  square(x,y,s);
   pop();
-  if (s > 5){
-    diamondFractals(x+s/2, y-s/2, s*0.7, a+5);
-    diamondFractals(x-s/2, y-s/2, s*0.7, a-5);
+  if(sizeSquare > 10){
+    drawFractals(x,y,a+5, s/1.1);
   }
-  
 }

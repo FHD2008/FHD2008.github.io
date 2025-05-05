@@ -9,6 +9,7 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rectMode(CENTER );
+  angleMode(DEGREES);
 }
 
 function draw() {
@@ -20,6 +21,7 @@ function draw() {
 function squareFractal(x,y,sideLength){
   fill(random(255),random(255),random(255),100)
   noStroke();
+  rotate(45);
   square(x,y,sideLength);
 
   if (sideLength > 10){

@@ -1,6 +1,8 @@
 // Puzzle game
 // Fahad Hussain
 // 7-4-2025
+//Make a game where the user has to flip all tiles and make it
+// same color either all black or all white.
 
 
 let sqPttrn = 0;   //set square pattern to off
@@ -31,7 +33,7 @@ function draw() {
     textSize(75);                     //→→→→  Victory text for win
     textAlign(CENTER);
     textFont("Times New Roman");
-    text("VICTORY!!", width/2, height/2);
+    text("YOU WIN!!!", width/2, height/2);
   }
   cursorOverlay()
  
@@ -99,8 +101,8 @@ function drawGrid(){
 }
 
 function checkForWin(){    //checks if the user won the game by getting all the squares same color (white)
-  allSqBlack = true;
-  allSqWhite = true;
+  let allSqBlack = true;
+  let allSqWhite = true;
   for (let y = 0; y < NUM_ROWS ; y++){
     for (let x = 0; x < NUM_COLS; x++){
       if((gridData[y][x] !== 255)){   
@@ -134,7 +136,7 @@ function cursorOverlay(){     //creates green overlay on the squares being affec
       rect((currentCol+1)*rectWidth, (currentRow+1)*rectHeight, rectWidth, rectHeight);
       rect(currentCol*rectWidth, (currentRow+1)*rectHeight, rectWidth, rectHeight);
     }
-    else{ //overlay on every square going to be affected by mouse click
+    else{ //overlay on every square going to be affected by mouse click (cross pattern)
       rect(currentCol*rectWidth, currentRow*rectHeight, rectWidth, rectHeight);
       rect((currentCol+1)*rectWidth, currentRow*rectHeight, rectWidth, rectHeight);
       rect((currentCol-1)*rectWidth, currentRow*rectHeight, rectWidth, rectHeight);
