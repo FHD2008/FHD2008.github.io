@@ -14,6 +14,8 @@ let shirtColor = "purple";
 
 let cloudShade;
 
+let bgX = 0;
+
 
 function setup() {
   createCanvas(700, 450);  
@@ -41,14 +43,14 @@ function draw() {
 
   drawGround();
   drawMount();
-  drawTree(65, 270, 1);
-  drawTree(635, 310, 0.5);
-  drawTree(550, 294, 0.7);
-  drawTree(150, 310, 0.5);
-  drawTree(220, 294, 0.7);
-  drawClouds(500,50);
-  drawClouds(300,100);
-  drawClouds(100,50);
+  drawTree(65+bgX, 270, 1);
+  drawTree(635+bgX, 310, 0.5);
+  drawTree(550+bgX, 294, 0.7);
+  drawTree(150+bgX, 310, 0.5);
+  drawTree(220+bgX, 294, 0.7);
+  drawClouds(500+bgX,50);
+  drawClouds(300+bgX,100);
+  drawClouds(100+bgX,50);
   drawCharacter();
 
   refXchar = mouseX-50; // moves the character horizontally with mouse
@@ -62,7 +64,10 @@ function draw() {
 
   textSize(20);
   fill("black");
-  text("Fahad Hussain", 20, 430);  // name 
+  text("Fahad Hussain", 20, 430);  // name
+
+  
+  
 }
 
 // Functions for each object in the scene  ---> In each function, refX and refY are the reference points for the object.
@@ -164,6 +169,8 @@ function keyPressed(){
   if (keyCode === 32){   // space key resets to original color
     shirtColor = "purple";
   }
+  
+  
 }
 
 // Input for changing background color

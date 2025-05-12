@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkwbj7vouii4w"]
+
+[ext_resource type="Texture2D" uid="uid://ibmb0wvcqm67" path="res://PixelSpaceRage/PixelBackgroundSeamless.png" id="1_etlru"]
+[ext_resource type="PackedScene" uid="uid://ugcttrfh8ych" path="res://player.tscn" id="1_gsm7c"]
+
+[node name="Level" type="Node2D"]
+position = Vector2(3, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(571.5, 325.5)
+scale = Vector2(4.48047, 2.49609)
+texture = ExtResource("1_etlru")
+
+[node name="Player" parent="." instance=ExtResource("1_gsm7c")]
+position = Vector2(568, 328)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

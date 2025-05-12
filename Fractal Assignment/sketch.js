@@ -18,18 +18,18 @@ function setup() {
 function draw() {
   background(220);
   randomSeed(1);
-  drawFractals(0,0,45,sizeSquare);
+  drawSpiralFractals(0,0,45,sizeSquare);
 }
 
-function drawFractals(x,y,a,s){
+function drawSpiralFractals(x,y,a,s){
   rectMode(CENTER)
-  fill(random(['grey', 'white']));
+  fill(random(['grey', 'white']));        //have grey or white random pattern
   push()
-  translate(width/2,height/2);
+  translate(width/2,height/2);            //translate the origin to centre of canvas
   rotate(a);
   square(x,y,s,10);
   pop();
   if(s > 10){
-    drawFractals(x,y,a+frameCount/10, s/1.1);
+    drawSpiralFractals(x,y,a+frameCount/10, s/1.1);
   }
 }
