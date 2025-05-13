@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkmblybq4mnrj"]
-
-[ext_resource type="Texture2D" uid="uid://rssbpw7wulap" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="1_6cd4h"]
+[gd_scene load_steps=8 format=3 uid="uid://bkmblybq4mnrj"]
 
 [sub_resource type="GDScript" id="GDScript_6cd4h"]
 script/source = "extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var speed = 10
+@export var jump_power = 10
 
+var speed_Multiplier = 30.0
+var jump_Multiplier = -35.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,19 +16,66 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
+		velocity.y = jump_power * jump_Multiplier
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	var direction := Input.get_axis(\"move_left\", \"move_right\")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed * speed_Multiplier
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed * speed_Multiplier)
 
 	move_and_slide()
 "
+
+[sub_resource type="Animation" id="Animation_p5kse"]
+resource_name = "Idle animation"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animator/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32), Rect2(32, 0, 32, 32), Rect2(64, 0, 32, 32), Rect2(96, 0, 32, 32), Rect2(128, 0, 32, 32), Rect2(160, 0, 32, 32), Rect2(192, 0, 32, 32), Rect2(224, 0, 32, 32), Rect2(256, 0, 32, 32), Rect2(288, 0, 32, 32), Rect2(320, 0, 32, 32), Rect2(320, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_j6a6s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animator/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_tje5s"]
+resource_name = "moving_animation"
+step = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxawy"]
+_data = {
+"Idle animation": SubResource("Animation_p5kse"),
+"RESET": SubResource("Animation_j6a6s"),
+"moving_animation": SubResource("Animation_tje5s")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eqf3h"]
+load_path = "res://.godot/imported/Idle (32x32).png-ffd46e23c62c5991ba073379ac477d2a.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]
 height = 28.0
@@ -38,17 +85,21 @@ script = SubResource("GDScript_6cd4h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -15)
-zoom = Vector2(6, 6)
+zoom = Vector2(2, 2)
 
 [node name="Animator" type="Node2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animator"]
 root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_kxawy")
+}
+autoplay = "Idle animation"
 
 [node name="Sprite2D" type="Sprite2D" parent="Animator"]
 position = Vector2(3, -17)
 scale = Vector2(0.90625, 1.10938)
-texture = ExtResource("1_6cd4h")
+texture = SubResource("CompressedTexture2D_eqf3h")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
