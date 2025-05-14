@@ -9,9 +9,10 @@ var speed_Multiplier = 30.0
 var jump_Multiplier = -35.0
 
 func _input(event):
-	# Handle jump.
+	# Jumping up functionality
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_power * jump_Multiplier
+	# Jumping down through platforms
 	if event.is_action_pressed("jump_downwards") and is_on_floor():
 		set_collision_mask_value(10, false)
 	else:
