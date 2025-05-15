@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xudt7x5umepi"]
 
-[ext_resource type="Script" uid="uid://4skdabke23gc" path="res://Assets/Code/moving_platform.gd" id="1_lpprd"]
-[ext_resource type="Texture2D" uid="uid://n53skn41d2g4" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/moving_platform.png" id="1_o3v1o"]
+[ext_resource type="Script" path="res://Assets/Code/moving_platform.gd" id="1_brwi2"]
+[ext_resource type="Texture2D" uid="uid://n53skn41d2g4" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/moving_platform.png" id="2_6cbsy"]
 
 [sub_resource type="Curve2D" id="Curve2D_utp5j"]
 resource_local_to_scene = true
@@ -17,7 +17,7 @@ size = Vector2(96.7489, 11.3478)
 position = Vector2(0, -1)
 scale = Vector2(1, 0.986667)
 curve = SubResource("Curve2D_utp5j")
-script = ExtResource("1_lpprd")
+script = ExtResource("1_brwi2")
 path_follow_2d = NodePath("PathFollow2D")
 move_speed = 0.3
 ease = 2
@@ -38,7 +38,7 @@ collision_layer = 512
 position = Vector2(10.1351, 2.00004)
 rotation = 1.5708
 scale = Vector2(0.0705031, 0.103125)
-texture = ExtResource("1_o3v1o")
+texture = ExtResource("2_6cbsy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(5.06742, 0.625168)

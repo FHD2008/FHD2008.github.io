@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6v623fgmmulj"]
+[gd_scene load_steps=13 format=3 uid="uid://c6v623fgmmulj"]
 
+[ext_resource type="Script" path="res://Assets/Code/level_exit.gd" id="1_hjd83"]
 [ext_resource type="Texture2D" uid="uid://bqwyifduhh26" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/Green Portal Sprite Sheet.png" id="1_mgfxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jar7d"]
@@ -71,6 +72,9 @@ radius = 14.0
 height = 60.0
 
 [node name="LevelExit" type="Area2D"]
+z_index = -10
+collision_layer = 65536
+script = ExtResource("1_hjd83")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(11.625, -12.3945)
@@ -83,3 +87,5 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(13, 0)
 shape = SubResource("CapsuleShape2D_njm8v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
