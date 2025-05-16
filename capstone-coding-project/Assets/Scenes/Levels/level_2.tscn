@@ -12,3 +12,12 @@ position = Vector2(64, -132)
 
 [node name="LevelExit" parent="." index="3"]
 position = Vector2(1322, -61)
+
+[node name="Collectible2" parent="collectibleNode" index="1"]
+position = Vector2(733, -119)
+
+[node name="Collectible3" parent="collectibleNode" index="2"]
+position = Vector2(976, -75)
+
+[node name="Collectible4" parent="collectibleNode" index="3"]
+position = Vector2(1226, -35)

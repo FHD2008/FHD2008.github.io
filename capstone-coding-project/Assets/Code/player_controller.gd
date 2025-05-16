@@ -19,9 +19,6 @@ func _input(event):
 	else:
 		set_collision_mask_value(10, true)
 		
-	if event.is_action_pressed("jump") and !is_on_floor() and is_on_wall():
-		velocity.x = jump_power*jump_Multiplier
-		velocity.y = jump_power*jump_Multiplier
 
 
 func _physics_process(delta: float) -> void:

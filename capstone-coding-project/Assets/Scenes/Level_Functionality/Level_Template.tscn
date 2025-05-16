@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgdklvicqg0gt"]
+[gd_scene load_steps=7 format=3 uid="uid://bgdklvicqg0gt"]
 
 [ext_resource type="Texture2D" uid="uid://v8mi480joeil" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_jj7rq"]
 [ext_resource type="PackedScene" uid="uid://bkmblybq4mnrj" path="res://Assets/Scenes/player.tscn" id="2_qf1ap"]
 [ext_resource type="PackedScene" uid="uid://c6v623fgmmulj" path="res://Assets/Scenes/Level_Functionality/level_exit.tscn" id="3_qf1ap"]
+[ext_resource type="PackedScene" uid="uid://j3opji32q42f" path="res://Assets/Scenes/collectible.tscn" id="4_jbwdf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20tee"]
 texture = ExtResource("1_jj7rq")
@@ -304,3 +305,17 @@ jump_power = 14
 
 [node name="LevelExit" parent="." instance=ExtResource("3_qf1ap")]
 position = Vector2(227, -66)
+
+[node name="collectibleNode" type="Node2D" parent="."]
+
+[node name="Collectible" parent="collectibleNode" instance=ExtResource("4_jbwdf")]
+position = Vector2(112, -66)
+
+[node name="Collectible2" parent="collectibleNode" instance=ExtResource("4_jbwdf")]
+position = Vector2(138, -66)
+
+[node name="Collectible3" parent="collectibleNode" instance=ExtResource("4_jbwdf")]
+position = Vector2(165, -66)
+
+[node name="Collectible4" parent="collectibleNode" instance=ExtResource("4_jbwdf")]
+position = Vector2(192, -66)
