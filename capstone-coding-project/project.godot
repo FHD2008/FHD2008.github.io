@@ -12,12 +12,16 @@ config_version=5
 
 config/name="Capstone coding project"
 run/main_scene="res://Assets/Scenes/Levels/level_1.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://Assets/Code/GameManager.gd"
+
+[global_group]
+
+Level_Exit=""
 
 [input]
 

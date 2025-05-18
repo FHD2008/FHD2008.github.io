@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://j3opji32q42f"]
 
-[ext_resource type="Script" path="res://Assets/Code/collectible.gd" id="1_83ofl"]
+[ext_resource type="Script" uid="uid://dpe1x66qwfcdd" path="res://Assets/Code/collectible.gd" id="1_83ofl"]
 [ext_resource type="Texture2D" uid="uid://dlgyyhitea3x4" path="res://Assets/Sprites/Pixel Adventure 1/Free/Traps/Platforms/Chain.png" id="2_2l4sl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7m3s"]
