@@ -38,6 +38,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_Multiplier)
 
-	
-
 	move_and_slide()
+	
+	
+func teleport(new_location):
+	position = new_location
