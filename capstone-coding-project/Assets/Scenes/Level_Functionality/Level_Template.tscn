@@ -289,6 +289,10 @@ sources/0 = SubResource("TileSetAtlasSource_20tee")
 
 [node name="LevelTemplate" type="Node2D"]
 
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fk45t")
 format = 2
