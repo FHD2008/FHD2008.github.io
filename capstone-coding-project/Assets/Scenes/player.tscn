@@ -271,9 +271,8 @@ sprite = NodePath("AnimatedSprite2D")
 position = Vector2(3, -17)
 scale = Vector2(0.90625, 1.10938)
 sprite_frames = SubResource("SpriteFrames_o8kuu")
-animation = &"wall_slide_jump"
+animation = &"idle animation"
 autoplay = "idle animation"
-frame_progress = 0.611661
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -13)
