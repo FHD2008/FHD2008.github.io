@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl8wj5mtuis1v"]
+
+[ext_resource type="Texture2D" uid="uid://dlgyyhitea3x4" path="res://Assets/Sprites/Pixel Adventure 1/Free/Traps/Platforms/Chain.png" id="1_4asr7"]
+[ext_resource type="Script" uid="uid://dv0swoetlrixl" path="res://Assets/Scenes/UI Scenes/hud.gd" id="1_h3ky5"]
+[ext_resource type="LabelSettings" uid="uid://dio5fbypef33j" path="res://Assets/UI settings/new_label_settings.tres" id="2_6deb8"]
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("collectible_label", "portal_label") groups=["HUD"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h3ky5")
+collectible_label = NodePath("CollectibleTexture/CollectibleLabel")
+portal_label = NodePath("PortalLabel")
+
+[node name="CollectibleTexture" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 120.0
+offset_bottom = 176.0
+texture = ExtResource("1_4asr7")
+
+[node name="CollectibleLabel" type="Label" parent="CollectibleTexture"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -12.0
+offset_right = 224.0
+offset_bottom = 11.0
+grow_vertical = 2
+text = "x 0 Items collected"
+label_settings = ExtResource("2_6deb8")
+
+[node name="PortalLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 229.0
+offset_bottom = 46.0
+text = "Portal closed..."
+label_settings = ExtResource("2_6deb8")

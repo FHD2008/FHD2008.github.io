@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dio5fbypef33j"]
+
+[ext_resource type="FontFile" uid="uid://40515ptyhjbt" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/kenney_kenney-fonts/Fonts/Kenney Mini.ttf" id="1_0ncqd"]
+
+[resource]
+font = ExtResource("1_0ncqd")
+font_size = 32
