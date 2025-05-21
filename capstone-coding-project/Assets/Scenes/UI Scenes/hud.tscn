@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl8wj5mtuis1v"]
+[gd_scene load_steps=5 format=3 uid="uid://cl8wj5mtuis1v"]
 
 [ext_resource type="Texture2D" uid="uid://dlgyyhitea3x4" path="res://Assets/Sprites/Pixel Adventure 1/Free/Traps/Platforms/Chain.png" id="1_4asr7"]
-[ext_resource type="Script" uid="uid://dv0swoetlrixl" path="res://Assets/Scenes/UI Scenes/hud.gd" id="1_h3ky5"]
+[ext_resource type="Script" path="res://Assets/Scenes/UI Scenes/hud.gd" id="1_h3ky5"]
 [ext_resource type="LabelSettings" uid="uid://dio5fbypef33j" path="res://Assets/UI settings/new_label_settings.tres" id="2_6deb8"]
+[ext_resource type="Texture2D" uid="uid://b5urd01gtiv80" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Next.png" id="4_tfvcg"]
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("collectible_label", "portal_label") groups=["HUD"]]
 layout_mode = 3
@@ -44,3 +45,11 @@ offset_right = 229.0
 offset_bottom = 46.0
 text = "Portal closed..."
 label_settings = ExtResource("2_6deb8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 48.0
+offset_right = 553.0
+offset_bottom = 78.0
+icon = ExtResource("4_tfvcg")

@@ -12,9 +12,12 @@ func _process(_delta):
 		sprite.play("moving_animation")
 	else:
 		sprite.play("idle animation") 
-		
+	
 	if player_Controller.is_on_floor() == false && player_Controller.velocity.y < 0.0:
 		sprite.play("jump_animation")
+	elif player_Controller.is_on_floor() == false && player_Controller.is_on_wall() == true:
+		sprite.play("wall_slide_jump")
 	elif player_Controller.is_on_floor() == false && player_Controller.velocity.y > 0.0:
 		sprite.play("fall_animation")
+	
 	
