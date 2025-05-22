@@ -5,10 +5,10 @@
 
 [node name="Gameplay" type="Node2D"]
 
+[node name="Level" type="Node2D" parent="." groups=["Level_container"]]
+
 [node name="Player" parent="." instance=ExtResource("1_2b1gy")]
 collision_mask = 768
-
-[node name="Level" type="Node2D" parent="." groups=["Level_container"]]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
