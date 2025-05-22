@@ -20,13 +20,11 @@ func _input(event):
 			velocity.y = jump_power * jump_Multiplier
 	# Wall jump functionailty
 		if is_on_wall_only() and Input.is_action_pressed("move_right"):
-			print("wall jump")
 			velocity.y = wall_jump_power * jump_Multiplier
-			pushback = -2
+			pushback = -2.5
 		if is_on_wall_only() and Input.is_action_pressed("move_left"):
-			print("wall jump")
 			velocity.y = wall_jump_power * jump_Multiplier
-			pushback = 2
+			pushback = 2.5
 	# Jumping down through platforms
 	if event.is_action_pressed("jump_downwards") and is_on_floor():
 		set_collision_mask_value(10, false)
@@ -48,7 +46,6 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("move_left", "move_right")
-	print(pushback)
 	if direction:
 		velocity.x = (direction + pushback) * speed * speed_Multiplier
 	else:

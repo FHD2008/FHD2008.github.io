@@ -1,5 +1,6 @@
 extends Node
 
+
 var level_folder_path = "res://Assets/Scenes/Levels/"
 var current_level = 1
 var starting_level = 1
@@ -7,6 +8,7 @@ var items_collected = 0
 var player : PlayerController
 var level_container: Node2D
 var hud: HUD
+
 
 
 
