@@ -19,4 +19,5 @@ func close_portal():
 
 func _on_body_entered(body):
 	if   is_open and body is PlayerController:
+		print("body enetred")
 		GameManager.next_level()

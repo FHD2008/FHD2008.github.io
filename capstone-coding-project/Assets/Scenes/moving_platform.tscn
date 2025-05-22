@@ -20,7 +20,6 @@ curve = SubResource("Curve2D_utp5j")
 script = ExtResource("1_brwi2")
 path_follow_2d = NodePath("PathFollow2D")
 move_speed = 0.3
-ease = 2
 transition = 4
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
