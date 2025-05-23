@@ -1,11 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6v623fgmmulj"]
+[gd_scene load_steps=21 format=3 uid="uid://c6v623fgmmulj"]
 
 [ext_resource type="Script" path="res://Assets/Code/level_exit.gd" id="1_hjd83"]
 [ext_resource type="Texture2D" uid="uid://bqwyifduhh26" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/Green Portal Sprite Sheet.png" id="1_mgfxa"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s3vrg"]
-atlas = ExtResource("1_mgfxa")
-region = Rect2(192, 68, 64, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jar7d"]
 atlas = ExtResource("1_mgfxa")
@@ -39,11 +35,43 @@ region = Rect2(384, 0, 64, 64)
 atlas = ExtResource("1_mgfxa")
 region = Rect2(448, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nyhy"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x35y"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nbe4"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxebq"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxoi4"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxsxy"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcq1b"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybjhm"]
+atlas = ExtResource("1_mgfxa")
+region = Rect2(448, 64, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gl6ml"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s3vrg")
+"texture": null
 }],
 "loop": true,
 "name": &"closed",
@@ -77,6 +105,35 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nyhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x35y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nbe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxebq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxoi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxsxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcq1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybjhm")
+}],
+"loop": false,
+"name": &"opening_portal",
+"speed": 15.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njm8v"]
@@ -93,7 +150,6 @@ sprite = NodePath("AnimatedSprite2D")
 position = Vector2(11, -11)
 scale = Vector2(3.57422, 2.01892)
 sprite_frames = SubResource("SpriteFrames_gl6ml")
-animation = &"closed"
 autoplay = "default"
 flip_h = true
 

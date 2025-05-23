@@ -11,6 +11,8 @@ func _ready():
 	
 func open_portal():
 	is_open = true
+	sprite.play("opening_portal")
+	await sprite.animation_finished
 	sprite.play("default")
 
 func close_portal():

@@ -8,6 +8,7 @@
 [node name="Level" type="Node2D" parent="." groups=["Level_container"]]
 
 [node name="Player" parent="." instance=ExtResource("1_2b1gy")]
+z_index = 20
 collision_mask = 768
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
