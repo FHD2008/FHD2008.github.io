@@ -8,6 +8,7 @@ var items_collected = 0
 var player : PlayerController
 var level_container: Node2D
 var hud: HUD
+var menu: Control
 
 
 
@@ -17,6 +18,8 @@ func _ready():
 	level_container = get_tree().get_first_node_in_group("Level_container")
 	player = get_tree().get_first_node_in_group("Player")
 	hud = get_tree().get_first_node_in_group("HUD")
+	menu = get_tree().get_first_node_in_group("Main menu")
+	
 	load_level(starting_level)
 	reset_items_collected()
 
@@ -59,7 +62,7 @@ func add_collectible():
 		
 func reset_player_pos(): #resets player position if falls off the ground
 	var start_pos = get_tree().get_first_node_in_group("PlayerPosition") as Node2D
-	if player.position.y >= 250:
-		player.velocity.y = 0
-		player.teleport(start_pos.position)
+	#if player.velocity.y >= 250:
+		#player.velocity.y = 0
+		#player.teleport(start_pos.position)
 		
