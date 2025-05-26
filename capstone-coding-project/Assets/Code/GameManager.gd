@@ -19,9 +19,9 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	hud = get_tree().get_first_node_in_group("HUD")
 	menu = get_tree().get_first_node_in_group("Main menu")
-	
-	load_level(starting_level)
-	reset_items_collected()
+	if level_container and player and hud:
+		load_level(1)
+		reset_items_collected()
 
 func _process(_delta):
 	reset_player_pos()
@@ -65,4 +65,3 @@ func reset_player_pos(): #resets player position if falls off the ground
 	#if player.velocity.y >= 250:
 		#player.velocity.y = 0
 		#player.teleport(start_pos.position)
-		

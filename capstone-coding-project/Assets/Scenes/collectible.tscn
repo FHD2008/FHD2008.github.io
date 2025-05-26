@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://j3opji32q42f"]
 
-[ext_resource type="Script" uid="uid://dpe1x66qwfcdd" path="res://Assets/Code/collectible.gd" id="1_83ofl"]
+[ext_resource type="Script" path="res://Assets/Code/collectible.gd" id="1_83ofl"]
 [ext_resource type="Texture2D" uid="uid://5dwwcmxwg1qt" path="res://Assets/Sprites/Pixel Adventure 1/Free/Items/Fruits/Collected.png" id="2_h024w"]
 [ext_resource type="Texture2D" uid="uid://bb4autjuql4ua" path="res://Assets/Sprites/Pixel Adventure 1/Free/Items/Fruits/Apple.png" id="2_kwiu0"]
 
