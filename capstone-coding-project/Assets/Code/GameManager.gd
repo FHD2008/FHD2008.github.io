@@ -19,9 +19,9 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	hud = get_tree().get_first_node_in_group("HUD")
 	menu = get_tree().get_first_node_in_group("Main menu")
-	if level_container and player and hud:
-		load_level(1)
-		reset_items_collected()
+	load_level(starting_level)
+	reset_items_collected()
+	
 
 func _process(_delta):
 	reset_player_pos()

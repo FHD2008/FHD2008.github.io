@@ -6,7 +6,7 @@ class_name PlayerController
 @export var camera = Camera2D
 @export var wall_jump_power = 15
 
-
+var hit = false
 var direction = 0
 var speed_Multiplier = 20.0
 var jump_Multiplier = -35.0
@@ -59,4 +59,7 @@ func teleport(new_location):
 	position = new_location
 	await get_tree().physics_frame
 	camera.position_smoothing_enabled = true
+	
+func damaged():
+	hit = true
 	
