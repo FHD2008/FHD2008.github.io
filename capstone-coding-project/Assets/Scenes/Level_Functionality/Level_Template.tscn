@@ -1,9 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgdklvicqg0gt"]
+[gd_scene load_steps=10 format=3 uid="uid://bgdklvicqg0gt"]
 
+[ext_resource type="Texture2D" uid="uid://mqxytw3xw6gv" path="res://Assets/Sprites/Pixel Adventure 1/Free/Background/Blue.png" id="1_efawg"]
 [ext_resource type="Texture2D" uid="uid://v8mi480joeil" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_jj7rq"]
-[ext_resource type="Texture2D" uid="uid://cncwmk4icuhgn" path="res://Assets/Sprites/Blue.png" id="1_vaurx"]
+[ext_resource type="Script" uid="uid://bbutpogyhm7we" path="res://Assets/Scenes/Level_Functionality/tile_map_layer.gd" id="2_26eff"]
 [ext_resource type="PackedScene" uid="uid://c6v623fgmmulj" path="res://Assets/Scenes/Level_Functionality/level_exit.tscn" id="3_qf1ap"]
 [ext_resource type="PackedScene" uid="uid://j3opji32q42f" path="res://Assets/Scenes/collectible.tscn" id="4_jbwdf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ikas"]
+texture = ExtResource("1_efawg")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o0r11"]
+sources/0 = SubResource("TileSetAtlasSource_2ikas")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20tee"]
 texture = ExtResource("1_jj7rq")
@@ -289,10 +298,10 @@ sources/0 = SubResource("TileSetAtlasSource_20tee")
 
 [node name="LevelTemplate" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_repeat = 2
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-6, -57)
-texture = ExtResource("1_vaurx")
+tile_set = SubResource("TileSet_o0r11")
+script = ExtResource("2_26eff")
 
 [node name="PlayerPosition" type="Node2D" parent="." groups=["PlayerPosition"]]
 

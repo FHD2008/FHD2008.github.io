@@ -20,4 +20,6 @@ func _process(_delta):
 	elif player_Controller.is_on_floor() == false && player_Controller.velocity.y > 0.0:
 		sprite.play("fall_animation")
 	
+	if player_Controller.hit == true:
+		sprite.play("hit_animation")
 	
