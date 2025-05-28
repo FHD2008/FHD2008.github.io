@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://mqxytw3xw6gv" path="res://Assets/Sprites/Pixel Adventure 1/Free/Background/Blue.png" id="1_efawg"]
 [ext_resource type="Texture2D" uid="uid://v8mi480joeil" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="1_jj7rq"]
-[ext_resource type="Script" uid="uid://bbutpogyhm7we" path="res://Assets/Scenes/Level_Functionality/tile_map_layer.gd" id="2_26eff"]
+[ext_resource type="Script" path="res://Assets/Scenes/Level_Functionality/tile_map_layer.gd" id="2_26eff"]
 [ext_resource type="PackedScene" uid="uid://c6v623fgmmulj" path="res://Assets/Scenes/Level_Functionality/level_exit.tscn" id="3_qf1ap"]
 [ext_resource type="PackedScene" uid="uid://j3opji32q42f" path="res://Assets/Scenes/collectible.tscn" id="4_jbwdf"]
 

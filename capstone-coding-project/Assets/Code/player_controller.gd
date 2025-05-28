@@ -3,7 +3,7 @@ class_name PlayerController
 
 @export var speed = 10
 @export var jump_power = 10
-@export var camera = Camera2D
+@export var camera: Camera2D
 @export var wall_jump_power = 15
 
 var hit = false
@@ -57,12 +57,12 @@ func _physics_process(delta):
 func teleport(new_location):
 	camera.position_smoothing_enabled = false
 	position = new_location
-	await get_tree().physics_frame
+	await get_tree().tree_changed
 	camera.position_smoothing_enabled = true
 	
 func damaged():
 	hit = true
-	pushback = 3
+	velocity.x = -100
+	velocity.y = -100
 	print("damage")
-	
 	
