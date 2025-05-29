@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://chanj6em25b2o"]
 
 [ext_resource type="Texture2D" uid="uid://cjriduvsbaih" path="res://Assets/Sprites/Pixel Adventure 1/Free/Traps/Fire/Hit (16x32).png" id="1_mth5k"]
-[ext_resource type="Script" path="res://Assets/Code/fire_trap.gd" id="1_vwmac"]
+[ext_resource type="Script" uid="uid://bp3yvkw60x2th" path="res://Assets/Code/fire_trap.gd" id="1_vwmac"]
 [ext_resource type="Texture2D" uid="uid://behbulx5dapdt" path="res://Assets/Sprites/Pixel Adventure 1/Free/Traps/Fire/Off.png" id="2_qvvpk"]
 [ext_resource type="Texture2D" uid="uid://bmcr0brljk3cg" path="res://Assets/Sprites/Pixel Adventure 1/Free/Traps/Fire/On (16x32).png" id="3_mw04v"]
 

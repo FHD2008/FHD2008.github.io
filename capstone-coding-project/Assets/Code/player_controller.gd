@@ -62,7 +62,7 @@ func teleport(new_location):
 	
 func damaged():
 	hit = true
-	velocity.x = -100
+	pushback = -3
 	velocity.y = -100
 	print("damage")
 	
