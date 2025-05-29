@@ -428,7 +428,9 @@ texture = ExtResource("6_26eff")
 8:8/0 = 0
 9:8/0 = 0
 12:8/0 = 0
+12:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7, 8, -6.875, 8, 8, -8, 8)
 13:8/0 = 0
+13:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7, 8, -6.875, 8, 8, -8, 8)
 16:8/0 = 0
 17:8/0 = 0
 20:8/0 = 0
@@ -460,7 +462,9 @@ texture = ExtResource("6_26eff")
 8:9/0 = 0
 9:9/0 = 0
 12:9/0 = 0
+12:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7, 8, -6.875, 8, 8, -8, 8)
 13:9/0 = 0
+13:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7, 8, -6.875, 8, 8, -8, 8)
 16:9/0 = 0
 17:9/0 = 0
 20:9/0 = 0
@@ -1163,12 +1167,18 @@ sources/0 = SubResource("TileSetAtlasSource_o0r11")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -20
+scale = Vector2(1.5, 1.5)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
 
 [node name="ParallaxCave4" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("1_o0r11")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 z_index = -15
+scale = Vector2(1.5, 1.5)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
 
 [node name="ParallaxCave3" type="Sprite2D" parent="Parallax2D2"]
 position = Vector2(-3, 0)
@@ -1176,12 +1186,18 @@ texture = ExtResource("2_4ng0c")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 z_index = -15
+scale = Vector2(1.5, 1.5)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
 
 [node name="ParallaxCave2" type="Sprite2D" parent="Parallax2D3"]
 texture = ExtResource("2_2ikas")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
 z_index = -15
+scale = Vector2(1.5, 1.5)
+repeat_size = Vector2(1024, 0)
+repeat_times = 3
 
 [node name="ParallaxCave1" type="Sprite2D" parent="Parallax2D4"]
 texture = ExtResource("1_26eff")
