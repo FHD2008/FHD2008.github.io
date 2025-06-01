@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyklmmnbq0exq"]
+[gd_scene load_steps=4 format=3 uid="uid://dyklmmnbq0exq"]
 
 [ext_resource type="Script" uid="uid://c3yl8ufc8dwrx" path="res://Assets/Scenes/UI Scenes/starting_screen.gd" id="1_nwnfb"]
 [ext_resource type="Texture2D" uid="uid://2rwfx478uln0" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Play.png" id="1_v3mkj"]
+[ext_resource type="Texture2D" uid="uid://c3wj1d6o0geba" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Settings.png" id="3_teq0v"]
 
 [node name="Main menu" type="Control" node_paths=PackedStringArray("play_button")]
 layout_mode = 3
@@ -11,22 +12,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nwnfb")
-play_button = NodePath("Button")
+play_button = NodePath("VBoxContainer/Button")
 
-[node name="Button" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -68.0
-offset_right = 72.0
-offset_bottom = 74.0
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 20.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 action_mode = 0
 icon = ExtResource("1_v3mkj")
 icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+icon = ExtResource("3_teq0v")
 expand_icon = true

@@ -19,9 +19,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	hud = get_tree().get_first_node_in_group("HUD")
 	menu = get_tree().get_first_node_in_group("Main menu")
-	reset_items_collected()
 	
-
 
 func next_level():
 	current_level += 1
@@ -48,6 +46,7 @@ func load_level(level_number):
 
 func reset_items_collected():
 	items_collected = 0
+	hud.collectible_label.text = "x " + "0"
 	
 func add_collectible():        #adds up the score of items colleccted
 	items_collected += 1

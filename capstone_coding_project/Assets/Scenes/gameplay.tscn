@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmwekr35q3ln7"]
 
 [ext_resource type="PackedScene" uid="uid://bkmblybq4mnrj" path="res://Assets/Scenes/player.tscn" id="1_2b1gy"]
-[ext_resource type="Script" path="res://Assets/Scenes/gameplay.gd" id="1_j02rm"]
+[ext_resource type="Script" uid="uid://druayn1uiuyus" path="res://Assets/Scenes/gameplay.gd" id="1_j02rm"]
 [ext_resource type="PackedScene" uid="uid://cl8wj5mtuis1v" path="res://Assets/Scenes/UI Scenes/hud.tscn" id="2_6k5g7"]
 
 [node name="Gameplay" type="Node2D"]
@@ -10,6 +10,8 @@ script = ExtResource("1_j02rm")
 [node name="Player" parent="." instance=ExtResource("1_2b1gy")]
 z_index = 20
 collision_mask = 768
+speed = 10
+jump_power = 10
 
 [node name="Level" type="Node2D" parent="." groups=["Level_container"]]
 
