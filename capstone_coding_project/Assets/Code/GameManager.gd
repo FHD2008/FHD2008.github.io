@@ -21,7 +21,6 @@ func _ready():
 	menu = get_tree().get_first_node_in_group("Main menu")
 	
 
-
 func next_level():
 	current_level += 1
 	load_level(current_level)
