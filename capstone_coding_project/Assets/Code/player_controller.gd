@@ -5,6 +5,7 @@ class_name PlayerController
 @export var jump_power = 10
 @export var camera: Camera2D
 @export var wall_jump_power = 15
+@export var camera_vertical_limit = 0
 
 var hit = false
 var direction = 0
@@ -12,6 +13,15 @@ var speed_Multiplier = 20.0
 var jump_Multiplier = -35.0
 var wall_gravity = 110
 var pushback = 0
+
+
+
+func _ready():
+	camera.set_limit(SIDE_TOP, camera_vertical_limit)
+
+func _process(delta):
+	if GameManager.current_level == 1:
+		camera.set_limit(SIDE_LEFT, -1152)
 
 func _input(event):
 	# Jumping up functionality

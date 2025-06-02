@@ -175,7 +175,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 17.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7m3s"]
@@ -189,7 +189,7 @@ apple = NodePath("Apple")
 position = Vector2(-2, -11)
 scale = Vector2(1.17285, 1.18555)
 sprite_frames = SubResource("SpriteFrames_ubk1x")
-animation = &"collected"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -10,8 +10,6 @@ script = ExtResource("1_j02rm")
 [node name="Player" parent="." instance=ExtResource("1_2b1gy")]
 z_index = 20
 collision_mask = 768
-speed = 10
-jump_power = 10
 
 [node name="Level" type="Node2D" parent="." groups=["Level_container"]]
 

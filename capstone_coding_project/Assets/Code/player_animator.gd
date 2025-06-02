@@ -1,6 +1,9 @@
 extends Node2D
 @export var player_Controller: PlayerController
 @export var sprite: AnimatedSprite2D
+var skin_path = "res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Player_spriteFrameResources/ninjafrog_skin.tres"
+
+
 
 func _process(_delta):
 	if player_Controller.direction == 1:
