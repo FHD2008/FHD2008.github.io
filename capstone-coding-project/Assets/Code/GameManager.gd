@@ -22,7 +22,6 @@ func _ready():
 	reset_items_collected()
 	
 
-
 func next_level():
 	current_level += 1
 	load_level(current_level)

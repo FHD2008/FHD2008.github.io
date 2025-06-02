@@ -312,6 +312,7 @@ wall_jump_power = 12
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -50)
 zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
 
 [node name="Animator" type="Node2D" parent="." node_paths=PackedStringArray("player_Controller", "sprite")]
 script = ExtResource("2_c3tg1")
