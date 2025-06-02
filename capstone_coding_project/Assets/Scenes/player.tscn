@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkmblybq4mnrj"]
+
+[ext_resource type="Script" uid="uid://cko5fx77uusgu" path="res://Assets/Code/player_controller.gd" id="1_w3t24"]
+[ext_resource type="Script" uid="uid://dhwfbixjq6soa" path="res://Assets/Code/player_animator.gd" id="2_c3tg1"]
+[ext_resource type="SpriteFrames" uid="uid://b6v4qva04rpos" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Player_spriteFrameResources/ninjafrog_skin.tres" id="3_38rej"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]
+height = 28.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera") groups=["Player"]]
+script = ExtResource("1_w3t24")
+camera = NodePath("Camera2D")
+wall_jump_power = 12
+camera_vertical_limit = -256
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="Animator" type="Node2D" parent="." node_paths=PackedStringArray("player_Controller", "sprite")]
+script = ExtResource("2_c3tg1")
+player_Controller = NodePath("..")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Animator"]
+position = Vector2(3, -17)
+scale = Vector2(0.90625, 1.10938)
+sprite_frames = ExtResource("3_38rej")
+animation = &"fall_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -13)
+shape = SubResource("CapsuleShape2D_7dd06")
