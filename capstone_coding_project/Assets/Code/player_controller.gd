@@ -45,7 +45,6 @@ func _input(event):
 
 func _physics_process(delta):
 	# Add the gravity.
-	reset_player_pos()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if is_on_wall() and not is_on_floor():
@@ -66,8 +65,10 @@ func _physics_process(delta):
 	
 	
 func teleport(new_location):
+	camera.position_smoothing_enabled = false
 	position = new_location
-
+	await get_tree().tree_changed
+	camera.position_smoothing_enabled = true
 	
 func damaged():
 	hit = true
@@ -75,8 +76,3 @@ func damaged():
 	velocity.y = -100
 	print("damage")
 	
-func reset_player_pos():
-	var start_pos = get_tree().get_first_node_in_group("PlayerPosition") as Node2D
-	if position.y >= 768:
-		velocity.y = 0
-		teleport(start_pos.position)
