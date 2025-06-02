@@ -57,7 +57,7 @@ size_flags_vertical = 3
 icon = ExtResource("3_teq0v")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
-repeat_size = Vector2(1536, 0)
+scroll_offset = Vector2(595, 379)
 repeat_times = 50
 follow_viewport = false
 script = ExtResource("4_j1rr8")
