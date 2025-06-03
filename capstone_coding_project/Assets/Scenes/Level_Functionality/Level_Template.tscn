@@ -2061,3 +2061,5 @@ tile_set = SubResource("TileSet_4ng0c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-808, -19)
 shape = SubResource("RectangleShape2D_o0r11")
+
+[node name="Enemies" type="Node2D" parent="."]

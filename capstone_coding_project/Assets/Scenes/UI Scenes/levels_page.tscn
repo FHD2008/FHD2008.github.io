@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://pqgc1nj82b6e"]
+
+[ext_resource type="PackedScene" uid="uid://dyklmmnbq0exq" path="res://Assets/Scenes/UI Scenes/Starting_screen.tscn" id="1_3q28x"]
+
+[node name="Main menu" instance=ExtResource("1_3q28x")]
+
+[node name="VBoxContainer" parent="." index="0"]
+visible = false
+
+[node name="Label" parent="." index="2"]
+offset_left = -256.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 209.0
+text = "Levels"
+
+[node name="Return Button" parent="." index="3"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 80.0
+offset_bottom = 88.0

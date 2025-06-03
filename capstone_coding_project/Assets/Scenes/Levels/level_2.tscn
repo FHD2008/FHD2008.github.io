@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=4 uid="uid://bwkr2r02i68kg"]
+[gd_scene load_steps=4 format=4 uid="uid://bwkr2r02i68kg"]
 
 [ext_resource type="PackedScene" uid="uid://bgdklvicqg0gt" path="res://Assets/Scenes/Level_Functionality/Level_Template.tscn" id="1_qbiya"]
+[ext_resource type="PackedScene" uid="uid://bktsv0ksd2b6a" path="res://Assets/Scenes/Traps and enemies scenes/rock_enemy.tscn" id="2_4x1mm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbiya"]
 normal = Vector2(0.999805, 0.019733)
@@ -34,3 +35,9 @@ tile_map_data = PackedByteArray("AAAAABEAAAAMAAgAAAAAABIAAAAMAAkAAAABABEAAAANAAg
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
 shape = SubResource("WorldBoundaryShape2D_qbiya")
+
+[node name="RockEnemy" parent="Enemies" index="0" instance=ExtResource("2_4x1mm")]
+position = Vector2(368, 256)
+
+[node name="RockEnemy2" parent="Enemies" index="1" instance=ExtResource("2_4x1mm")]
+position = Vector2(208, 256)

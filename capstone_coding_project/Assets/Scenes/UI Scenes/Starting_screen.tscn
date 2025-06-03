@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyklmmnbq0exq"]
+[gd_scene load_steps=12 format=3 uid="uid://dyklmmnbq0exq"]
 
 [ext_resource type="Script" uid="uid://c3yl8ufc8dwrx" path="res://Assets/Scenes/UI Scenes/starting_screen.gd" id="1_nwnfb"]
 [ext_resource type="Texture2D" uid="uid://2rwfx478uln0" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Play.png" id="1_v3mkj"]
-[ext_resource type="Texture2D" uid="uid://c3wj1d6o0geba" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Settings.png" id="3_teq0v"]
+[ext_resource type="Texture2D" uid="uid://dtls0dv4cf0rq" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Levels.png" id="3_03dfl"]
 [ext_resource type="Texture2D" uid="uid://csmrhlfh8pisg" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave4.png" id="4_iy86r"]
 [ext_resource type="Script" uid="uid://dkpdnfib34kbx" path="res://Assets/Scenes/UI Scenes/menu_background.gd" id="4_j1rr8"]
 [ext_resource type="Texture2D" uid="uid://b5rjl5mi6f64c" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave3.png" id="5_j1rr8"]
 [ext_resource type="Texture2D" uid="uid://60b0npr0nt0a" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave2.png" id="6_03dfl"]
 [ext_resource type="Texture2D" uid="uid://bs0cmry7o0lrn" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave1.png" id="7_qafew"]
 [ext_resource type="FontFile" uid="uid://cbvfwmb231qo1" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/kenney_kenney-fonts/Fonts/Kenney High Square.ttf" id="9_03dfl"]
+[ext_resource type="Texture2D" uid="uid://mwrh5gxtiktq" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Square Buttons/Square Buttons/Back Square Button.png" id="10_qafew"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qafew"]
 font = ExtResource("9_03dfl")
@@ -17,7 +18,7 @@ font_color = Color(0.725467, 0.70645, 0.714781, 1)
 outline_size = 14
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Main menu" type="Control" node_paths=PackedStringArray("play_button")]
+[node name="Main menu" type="Control" node_paths=PackedStringArray("play_button", "levels_button", "return_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +26,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nwnfb")
-play_button = NodePath("VBoxContainer/Button")
+play_button = NodePath("VBoxContainer/PlayButton")
+levels_button = NodePath("VBoxContainer/LevelsButton")
+return_button = NodePath("Return Button")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -42,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -50,11 +53,11 @@ action_mode = 0
 icon = ExtResource("1_v3mkj")
 icon_alignment = 1
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="LevelsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-icon = ExtResource("3_teq0v")
+icon = ExtResource("3_03dfl")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 scroll_offset = Vector2(595, 379)
@@ -118,3 +121,12 @@ text = "CAVE
 ADVENTURE"
 label_settings = SubResource("LabelSettings_qafew")
 horizontal_alignment = 1
+
+[node name="Return Button" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 104.0
+offset_bottom = 112.0
+icon = ExtResource("10_qafew")
+flat = true
+expand_icon = true

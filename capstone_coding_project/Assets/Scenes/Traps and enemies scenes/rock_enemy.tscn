@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://bktsv0ksd2b6a"]
+
+[ext_resource type="Texture2D" uid="uid://bmoiwdxv2255i" path="res://Assets/Sprites/Pixel Adventure 1/Pixel Adventure 2/Enemies/Rocks/Rock1_Idle (38x34).png" id="1_4lndm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge5yb"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(0, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj5d4"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(38, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1vr4"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(76, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfniq"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(114, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6vgu"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(152, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeusk"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(190, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0hy5"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(228, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xafw2"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(266, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0tpj"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(304, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cmvf"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(342, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfkr1"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(380, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg8kp"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(418, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfy83"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(456, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3xr"]
+atlas = ExtResource("1_4lndm")
+region = Rect2(494, 0, 38, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e57v7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge5yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj5d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1vr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfniq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6vgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeusk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0hy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xafw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0tpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cmvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfkr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg8kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfy83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v3xr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lndm"]
+radius = 27.0
+
+[node name="RockEnemy" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9.53674e-07, 0)
+sprite_frames = SubResource("SpriteFrames_e57v7")
+animation = &"idle"
+frame_progress = 0.876652
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.65, 0.65)
+shape = SubResource("CircleShape2D_4lndm")
