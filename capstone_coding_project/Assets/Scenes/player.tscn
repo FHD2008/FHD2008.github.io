@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkmblybq4mnrj"]
 
-[ext_resource type="Script" path="res://Assets/Code/player_controller.gd" id="1_w3t24"]
-[ext_resource type="Script" path="res://Assets/Code/player_animator.gd" id="2_c3tg1"]
+[ext_resource type="Script" uid="uid://cko5fx77uusgu" path="res://Assets/Code/player_controller.gd" id="1_w3t24"]
+[ext_resource type="Script" uid="uid://dhwfbixjq6soa" path="res://Assets/Code/player_animator.gd" id="2_c3tg1"]
 [ext_resource type="SpriteFrames" uid="uid://b6v4qva04rpos" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Player_spriteFrameResources/ninjafrog_skin.tres" id="3_38rej"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]

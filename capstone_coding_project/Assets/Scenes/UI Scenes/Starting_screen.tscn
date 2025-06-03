@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dyklmmnbq0exq"]
 
-[ext_resource type="Script" path="res://Assets/Scenes/UI Scenes/starting_screen.gd" id="1_nwnfb"]
+[ext_resource type="Script" uid="uid://c3yl8ufc8dwrx" path="res://Assets/Scenes/UI Scenes/starting_screen.gd" id="1_nwnfb"]
 [ext_resource type="Texture2D" uid="uid://2rwfx478uln0" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Play.png" id="1_v3mkj"]
 [ext_resource type="Texture2D" uid="uid://c3wj1d6o0geba" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Settings.png" id="3_teq0v"]
 [ext_resource type="Texture2D" uid="uid://csmrhlfh8pisg" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave4.png" id="4_iy86r"]
-[ext_resource type="Script" path="res://Assets/Scenes/UI Scenes/menu_background.gd" id="4_j1rr8"]
+[ext_resource type="Script" uid="uid://dkpdnfib34kbx" path="res://Assets/Scenes/UI Scenes/menu_background.gd" id="4_j1rr8"]
 [ext_resource type="Texture2D" uid="uid://b5rjl5mi6f64c" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave3.png" id="5_j1rr8"]
 [ext_resource type="Texture2D" uid="uid://60b0npr0nt0a" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave2.png" id="6_03dfl"]
 [ext_resource type="Texture2D" uid="uid://bs0cmry7o0lrn" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave1.png" id="7_qafew"]
@@ -58,6 +58,7 @@ icon = ExtResource("3_teq0v")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
 scroll_offset = Vector2(595, 379)
+repeat_size = Vector2(1536, 0)
 repeat_times = 50
 follow_viewport = false
 script = ExtResource("4_j1rr8")

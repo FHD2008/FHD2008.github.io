@@ -19,7 +19,7 @@ var pushback = 0
 func _ready():
 	camera.set_limit(SIDE_TOP, camera_vertical_limit)
 
-func _process(delta):
+func _process(_delta):
 	if GameManager.current_level == 1:
 		camera.set_limit(SIDE_LEFT, -1152)
 
