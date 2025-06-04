@@ -37,7 +37,4 @@ tile_map_data = PackedByteArray("AAAAABEAAAAMAAgAAAAAABIAAAAMAAkAAAABABEAAAANAAg
 shape = SubResource("WorldBoundaryShape2D_qbiya")
 
 [node name="RockEnemy" parent="Enemies" index="0" instance=ExtResource("2_4x1mm")]
-position = Vector2(368, 256)
-
-[node name="RockEnemy2" parent="Enemies" index="1" instance=ExtResource("2_4x1mm")]
-position = Vector2(208, 256)
+position = Vector2(320, 256)

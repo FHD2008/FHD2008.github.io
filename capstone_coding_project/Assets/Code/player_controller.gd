@@ -7,6 +7,7 @@ class_name PlayerController
 @export var wall_jump_power = 15
 @export var camera_vertical_limit = 0
 
+var hud: HUD
 var hit = false
 var direction = 0
 var speed_Multiplier = 20.0
@@ -17,6 +18,7 @@ var pushback = 0
 
 
 func _ready():
+	hud = get_tree().get_first_node_in_group("HUD")
 	camera.set_limit(SIDE_TOP, camera_vertical_limit)
 
 func _process(_delta):
@@ -73,6 +75,7 @@ func damaged():
 	hit = true
 	pushback = -3
 	velocity.y = -100
+	hud.decrease_lives()
 	print("damage")
 	
 func reset_player_pos():
@@ -80,3 +83,6 @@ func reset_player_pos():
 	if position.y >= 768:
 		velocity.y = 0
 		teleport(start_pos.position)
+
+func kill_jump():
+	velocity.y = jump_power*jump_Multiplier

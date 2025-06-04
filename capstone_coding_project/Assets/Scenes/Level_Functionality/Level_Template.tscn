@@ -291,7 +291,9 @@ texture = ExtResource("1_jj7rq")
 
 [sub_resource type="TileSet" id="TileSet_fk45t"]
 physics_layer_0/collision_layer = 256
+physics_layer_0/collision_mask = 3
 physics_layer_1/collision_layer = 512
+physics_layer_1/collision_mask = 3
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "One_way_ground"
 terrain_set_0/terrain_0/color = Color(0.690238, 0.0552555, 0.378504, 1)
@@ -1980,6 +1982,7 @@ texture = ExtResource("6_26eff")
 
 [sub_resource type="TileSet" id="TileSet_4ng0c"]
 physics_layer_0/collision_layer = 256
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_o0r11")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0r11"]

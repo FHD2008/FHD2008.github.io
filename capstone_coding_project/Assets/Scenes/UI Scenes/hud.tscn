@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5urd01gtiv80" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Next.png" id="4_tfvcg"]
 [ext_resource type="Texture2D" uid="uid://dnm5x1oisv0ek" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/heart.png" id="5_k7e04"]
 
-[node name="HUD" type="Control" node_paths=PackedStringArray("collectible_label", "portal_label", "button") groups=["HUD"]]
+[node name="HUD" type="Control" node_paths=PackedStringArray("collectible_label", "portal_label", "button", "healthbar") groups=["HUD"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ script = ExtResource("1_h3ky5")
 collectible_label = NodePath("CollectibleTexture/CollectibleLabel")
 portal_label = NodePath("PortalLabel")
 button = NodePath("SkipButton")
+healthbar = NodePath("Panel")
 
 [node name="CollectibleTexture" type="TextureRect" parent="."]
 layout_mode = 1
@@ -74,7 +75,7 @@ offset_left = -323.0
 offset_bottom = 98.0
 grow_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="Heart1" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -86,7 +87,7 @@ offset_bottom = 170.0
 grow_horizontal = 0
 texture = ExtResource("5_k7e04")
 
-[node name="TextureRect2" type="TextureRect" parent="Panel"]
+[node name="Heart2" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -98,7 +99,7 @@ offset_bottom = 170.0
 grow_horizontal = 0
 texture = ExtResource("5_k7e04")
 
-[node name="TextureRect3" type="TextureRect" parent="Panel"]
+[node name="Heart3" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

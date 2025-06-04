@@ -3,8 +3,16 @@ class_name HUD
 @export var collectible_label: Label
 @export var portal_label: Label
 @export var button: Button
+@export var healthbar: Panel
+var current_lives = 3
+@onready var lives = [
+	$Panel/Heart1,
+	$Panel/Heart2,
+	$Panel/Heart3
+]
 
 func _ready():
+	current_lives = 3
 	button.pressed.connect(skip_level)
 
 func update_collectibles(number: int):
@@ -18,3 +26,8 @@ func portal_closed():
 
 func skip_level():
 	GameManager.next_level()
+
+func decrease_lives():
+	if current_lives > 0:
+		current_lives -= 1
+		lives[current_lives].visible = false

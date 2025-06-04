@@ -16,9 +16,6 @@ func _process(delta):
 	time += delta
 	print(int(time))
 	
-	
-	
-
 
 func _on_area_2d_body_entered(body):
 	if body is PlayerController and fire_on == true:
