@@ -1,11 +1,40 @@
-[gd_resource type="SpriteFrames" load_steps=44 format=3 uid="uid://b6v4qva04rpos"]
+[gd_resource type="SpriteFrames" load_steps=52 format=3 uid="uid://b6v4qva04rpos"]
 
 [ext_resource type="Texture2D" uid="uid://choxhjyty7s08" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Fall (32x32).png" id="1_hdy50"]
+[ext_resource type="Texture2D" uid="uid://fvnxs8v3xcki" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Desappearing (96x96).png" id="1_woist"]
 [ext_resource type="Texture2D" uid="uid://bp8hblmt5isoa" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Hit (32x32).png" id="2_woist"]
 [ext_resource type="Texture2D" uid="uid://rssbpw7wulap" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Idle (32x32).png" id="3_p11qf"]
 [ext_resource type="Texture2D" uid="uid://dbd8iayowcrg0" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Jump (32x32).png" id="4_u8ske"]
 [ext_resource type="Texture2D" uid="uid://b4vclfci4n0xf" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Run (32x32).png" id="5_m86ls"]
 [ext_resource type="Texture2D" uid="uid://50rok7eukn0n" path="res://Assets/Sprites/Pixel Adventure 1/Free/Main Characters/Ninja Frog/Wall Jump (32x32).png" id="6_7rw2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11qf"]
+atlas = ExtResource("1_woist")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8ske"]
+atlas = ExtResource("1_woist")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m86ls"]
+atlas = ExtResource("1_woist")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rw2m"]
+atlas = ExtResource("1_woist")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4mbm"]
+atlas = ExtResource("1_woist")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn3ue"]
+atlas = ExtResource("1_woist")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt0n5"]
+atlas = ExtResource("1_woist")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqho8"]
 atlas = ExtResource("1_hdy50")
@@ -157,6 +186,32 @@ region = Rect2(128, 0, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8ske")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m86ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rw2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4mbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn3ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt0n5")
+}],
+"loop": false,
+"name": &"die_animation",
+"speed": 20.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nqho8")

@@ -7,11 +7,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dd06"]
 height = 28.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera", "sprite") groups=["Player"]]
 script = ExtResource("1_w3t24")
 camera = NodePath("Camera2D")
 wall_jump_power = 12
 camera_vertical_limit = -256
+sprite = NodePath("Animator/PlayerAnimatedSprite")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -21,13 +22,15 @@ editor_draw_limits = true
 [node name="Animator" type="Node2D" parent="." node_paths=PackedStringArray("player_Controller", "sprite")]
 script = ExtResource("2_c3tg1")
 player_Controller = NodePath("..")
-sprite = NodePath("AnimatedSprite2D")
+sprite = NodePath("PlayerAnimatedSprite")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Animator"]
+[node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="Animator"]
 position = Vector2(3, -17)
 scale = Vector2(0.90625, 1.10938)
 sprite_frames = ExtResource("3_38rej")
-animation = &"fall_animation"
+animation = &"die_animation"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -13)

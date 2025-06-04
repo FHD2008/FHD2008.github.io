@@ -12,7 +12,7 @@ var current_lives = 3
 ]
 
 func _ready():
-	current_lives = 3
+	reset_lives()
 	button.pressed.connect(skip_level)
 
 func update_collectibles(number: int):
@@ -31,3 +31,10 @@ func decrease_lives():
 	if current_lives > 0:
 		current_lives -= 1
 		lives[current_lives].visible = false
+	if current_lives == 0:
+		GameManager.respawn_player()
+
+func reset_lives():
+	current_lives = 3
+	for items in 3:
+		lives[items].visible = true

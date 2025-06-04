@@ -11,6 +11,11 @@ func _process(_delta):
 	elif player_Controller.direction == -1:
 		sprite.flip_h = true
 		
+	if player_Controller.dead:
+		sprite.play("die_animation")
+		await sprite.animation_finished
+		player_Controller.dead = false
+	
 	if player_Controller.hit == true:
 		sprite.play("hit_animation")
 		await sprite.animation_finished
@@ -28,5 +33,5 @@ func _process(_delta):
 	elif player_Controller.is_on_floor() == false && player_Controller.velocity.y > 0.0:
 		sprite.play("fall_animation")
 	
-	
+
 	

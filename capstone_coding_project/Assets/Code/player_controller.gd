@@ -6,7 +6,9 @@ class_name PlayerController
 @export var camera: Camera2D
 @export var wall_jump_power = 15
 @export var camera_vertical_limit = 0
+@export var sprite: AnimatedSprite2D
 
+var dead = false
 var hud: HUD
 var hit = false
 var direction = 0
