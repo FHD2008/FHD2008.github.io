@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl8wj5mtuis1v"]
+[gd_scene load_steps=7 format=3 uid="uid://cl8wj5mtuis1v"]
 
 [ext_resource type="Script" uid="uid://dv0swoetlrixl" path="res://Assets/Scenes/UI Scenes/hud.gd" id="1_h3ky5"]
 [ext_resource type="LabelSettings" uid="uid://dio5fbypef33j" path="res://Assets/UI settings/new_label_settings.tres" id="2_6deb8"]
 [ext_resource type="Texture2D" uid="uid://ddex1604sfjl2" path="res://Assets/Sprites/Pixel Adventure 1/Free/Items/Fruits/apple no..png" id="2_bvkjg"]
 [ext_resource type="Texture2D" uid="uid://b5urd01gtiv80" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Next.png" id="4_tfvcg"]
 [ext_resource type="Texture2D" uid="uid://dnm5x1oisv0ek" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/heart.png" id="5_k7e04"]
+[ext_resource type="Texture2D" uid="uid://bejyb01xos2nl" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Square Buttons/Square Buttons/Pause Square Button.png" id="6_l0j8w"]
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("collectible_label", "portal_label", "button", "healthbar") groups=["HUD"]]
 layout_mode = 3
@@ -21,10 +22,14 @@ healthbar = NodePath("Panel")
 
 [node name="CollectibleTexture" type="TextureRect" parent="."]
 layout_mode = 1
-offset_left = 21.0
-offset_top = 59.0
-offset_right = 138.0
-offset_bottom = 179.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -146.0
+offset_right = 144.0
+offset_bottom = -26.0
+grow_vertical = 0
 texture = ExtResource("2_bvkjg")
 
 [node name="CollectibleLabel" type="Label" parent="CollectibleTexture"]
@@ -41,11 +46,15 @@ text = "x 0 Apples collected"
 label_settings = ExtResource("2_6deb8")
 
 [node name="PortalLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 16.0
-offset_right = 229.0
-offset_bottom = 46.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -51.0
+offset_right = 283.0
+offset_bottom = -11.0
+grow_vertical = 0
 text = "Portal closed..."
 label_settings = ExtResource("2_6deb8")
 
@@ -110,3 +119,15 @@ offset_right = 45.0
 offset_bottom = 171.0
 grow_horizontal = 0
 texture = ExtResource("5_k7e04")
+
+[node name="Pause Button" type="Button" parent="."]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 104.0
+offset_bottom = 96.0
+icon = ExtResource("6_l0j8w")
+flat = true
+expand_icon = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
