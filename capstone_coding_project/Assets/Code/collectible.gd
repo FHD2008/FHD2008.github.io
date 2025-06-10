@@ -1,6 +1,5 @@
 extends Area2D
 
-var items_collected = 0
 @export var apple: AnimatedSprite2D
 
 func _on_body_entered(body):

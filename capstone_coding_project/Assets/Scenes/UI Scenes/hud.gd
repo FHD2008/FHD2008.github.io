@@ -2,7 +2,7 @@ extends Control
 class_name HUD
 @export var collectible_label: Label
 @export var portal_label: Label
-@export var button: Button
+@export var skip_button: Button
 @export var healthbar: Panel
 var current_lives = 3
 @onready var lives = [
@@ -13,7 +13,7 @@ var current_lives = 3
 
 func _ready():
 	reset_lives()
-	button.pressed.connect(skip_level)
+	skip_button.pressed.connect(skip_level)
 
 func update_collectibles(number: int):
 	collectible_label.text = "x " + str(number)

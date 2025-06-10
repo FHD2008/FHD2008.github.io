@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c66yf7ij88pcq"]
+
+[ext_resource type="FontFile" uid="uid://cbvfwmb231qo1" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/kenney_kenney-fonts/Fonts/Kenney High Square.ttf" id="1_x7bh2"]
+
+[resource]
+font = ExtResource("1_x7bh2")
+font_size = 120
