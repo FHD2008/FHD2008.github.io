@@ -8,7 +8,9 @@ var items_collected = 0
 var player : PlayerController
 var level_container: Node2D
 var hud: HUD
-var menu: Control
+var collectible_scene = preload("res://Assets/Scenes/collectible.tscn")
+var collectibles_positions = []
+var collectible_node = null
 
 	
 	
@@ -33,6 +35,25 @@ func setup_level():  #sets up the level for starting the game after play button 
 	player = get_tree().get_first_node_in_group("Player")
 	hud = get_tree().get_first_node_in_group("HUD")
 	load_level(starting_level)
+	loadup_collectibles()
+	
+
+func loadup_collectibles():
+	collectibles_positions.clear ##empties the array which has stored the positions of the apples
+	collectible_node = get_tree().current_scene.get_node("collectibleNode")
+	for c in collectible_node.get_children():
+		collectibles_positions.append(c.position)
+
+func respawn_collectibles():
+	if collectible_node == null:
+		return
+	for c in collectible_node.get_children():
+		c.queue_free()
+	for pos in collectibles_positions:
+		var new_c = collectible_scene.instantiate()
+		new_c.position = pos
+		collectible_node.add_child(new_c)
+		
 
 func next_level():
 	current_level += 1
@@ -57,6 +78,7 @@ func respawn_player():
 		await player.sprite.animation_finished
 		reset_player_pos()
 		reset_items_collected()
+		respawn_collectibles()
 		hud.reset_lives()
 
 func reset_player_pos():

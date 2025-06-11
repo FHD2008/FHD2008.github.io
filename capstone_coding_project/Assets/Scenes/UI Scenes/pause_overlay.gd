@@ -22,4 +22,5 @@ func resume_game():
 	pause_button.visible = true
 	
 func go_to_menu():
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Assets/Scenes/UI Scenes/Starting_screen.tscn")
