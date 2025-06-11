@@ -32,7 +32,6 @@ func setup_level():  #sets up the level for starting the game after play button 
 	level_container = get_tree().get_first_node_in_group("Level_container")
 	player = get_tree().get_first_node_in_group("Player")
 	hud = get_tree().get_first_node_in_group("HUD")
-	menu = get_tree().get_first_node_in_group("Main menu") 
 	load_level(starting_level)
 
 func next_level():

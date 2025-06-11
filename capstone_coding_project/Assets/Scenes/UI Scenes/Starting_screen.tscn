@@ -19,6 +19,7 @@ outline_size = 14
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Main menu" type="Control" node_paths=PackedStringArray("play_button", "levels_button")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
