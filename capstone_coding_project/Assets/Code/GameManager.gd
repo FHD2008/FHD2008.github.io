@@ -10,7 +10,7 @@ var level_container: Node2D
 var hud: HUD
 var collectible_scene = preload("res://Assets/Scenes/collectible.tscn")
 var collectibles_positions = []
-var collectible_node = null
+var collectible_node: Node2D
 
 	
 	
@@ -23,10 +23,11 @@ func load_level(level_number):
 	for child in level_container.get_children():   #deletes the children of a node
 		child.queue_free()
 		await child.tree_exited
-	var instant = scene.instantiate()       #opens up a scene with its heirarchy
+	var instant = scene.instantiate()       #opens up a level s cene with its heirarchy
 	level_container.add_child(instant)
 	#Spawning at the start position given in level
 	reset_player_pos()
+	loadup_collectibles()
 	reset_items_collected()
 	hud.portal_closed()
 
@@ -35,29 +36,29 @@ func setup_level():  #sets up the level for starting the game after play button 
 	player = get_tree().get_first_node_in_group("Player")
 	hud = get_tree().get_first_node_in_group("HUD")
 	load_level(starting_level)
-	loadup_collectibles()
+	
 	
 
 func loadup_collectibles():
 	collectibles_positions.clear ##empties the array which has stored the positions of the apples
-	collectible_node = get_tree().current_scene.get_node("collectibleNode")
+	collectible_node = get_tree().get_first_node_in_group("collectibles_Group")
 	for c in collectible_node.get_children():
 		collectibles_positions.append(c.position)
-
+		
+	print(collectibles_positions)
 func respawn_collectibles():
-	if collectible_node == null:
-		return
 	for c in collectible_node.get_children():
 		c.queue_free()
 	for pos in collectibles_positions:
 		var new_c = collectible_scene.instantiate()
 		new_c.position = pos
 		collectible_node.add_child(new_c)
-		
+	print("respawn collectible")
 
 func next_level():
 	current_level += 1
 	load_level(current_level)
+	loadup_collectibles()
 	print("Player has been teleported to level " + str(current_level))
 
 func reset_items_collected():
@@ -77,8 +78,8 @@ func respawn_player():
 		player.dead = true
 		await player.sprite.animation_finished
 		reset_player_pos()
-		reset_items_collected()
 		respawn_collectibles()
+		reset_items_collected()
 		hud.reset_lives()
 
 func reset_player_pos():

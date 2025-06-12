@@ -2038,7 +2038,7 @@ layer_1/name = "ground"
 [node name="MovingPlatforms" type="Node2D" parent="."]
 position = Vector2(41, 53)
 
-[node name="collectibleNode" type="Node2D" parent="."]
+[node name="collectibleNode" type="Node2D" parent="." groups=["collectibles_Group"]]
 position = Vector2(2, 54)
 
 [node name="Collectible" parent="collectibleNode" instance=ExtResource("4_jbwdf")]

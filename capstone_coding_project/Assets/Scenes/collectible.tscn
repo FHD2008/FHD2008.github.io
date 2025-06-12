@@ -181,7 +181,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7m3s"]
 size = Vector2(16.5, 17)
 
-[node name="Collectible" type="Area2D" node_paths=PackedStringArray("apple") groups=["collectibles"]]
+[node name="Collectible" type="Area2D" node_paths=PackedStringArray("apple")]
 script = ExtResource("1_83ofl")
 apple = NodePath("Apple")
 
