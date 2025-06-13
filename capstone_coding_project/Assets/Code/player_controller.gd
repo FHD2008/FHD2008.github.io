@@ -81,10 +81,7 @@ func damaged():
 	print("damage")
 	
 func reset_player_pos():
-	var start_pos = get_tree().get_first_node_in_group("PlayerPosition") as Node2D
-	if position.y >= 768:
-		velocity.y = 0
-		teleport(start_pos.position)
+		GameManager.respawn_player()
 
 func kill_jump():
 	velocity.y = jump_power*jump_Multiplier

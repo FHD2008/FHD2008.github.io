@@ -40,7 +40,7 @@ func setup_level():  #sets up the level for starting the game after play button 
 	
 
 func loadup_collectibles():
-	collectibles_positions.clear ##empties the array which has stored the positions of the apples
+	collectibles_positions.clear() ##empties the array which has stored the positions of the apples
 	collectible_node = get_tree().get_first_node_in_group("collectibles_Group")
 	for c in collectible_node.get_children():
 		collectibles_positions.append(c.position)
@@ -77,6 +77,11 @@ func respawn_player():
 	if hud.current_lives == 0:
 		player.dead = true
 		await player.sprite.animation_finished
+		reset_player_pos()
+		respawn_collectibles()
+		reset_items_collected()
+		hud.reset_lives()
+	elif player.position.y >= 768:
 		reset_player_pos()
 		respawn_collectibles()
 		reset_items_collected()

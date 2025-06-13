@@ -15,6 +15,7 @@ camera_vertical_limit = -256
 sprite = NodePath("Animator/PlayerAnimatedSprite")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 editor_draw_limits = true
 
