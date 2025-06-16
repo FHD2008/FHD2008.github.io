@@ -11,11 +11,12 @@ height = 28.0
 script = ExtResource("1_w3t24")
 camera = NodePath("Camera2D")
 wall_jump_power = 12
-camera_vertical_limit = -256
+camera_top_limit = -192
+camera_bottom_limit = 512
 sprite = NodePath("Animator/PlayerAnimatedSprite")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.2, 2.2)
 position_smoothing_enabled = true
 editor_draw_limits = true
 

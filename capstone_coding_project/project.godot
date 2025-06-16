@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Assets/Code/GameManager.gd"
+BgMusicPlayer="*res://Assets/Scenes/BG_Music_player.tscn"
 
 [global_group]
 

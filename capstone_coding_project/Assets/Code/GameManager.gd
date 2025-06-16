@@ -13,7 +13,10 @@ var collectibles_positions = []
 var collectible_node: Node2D
 
 	
-	
+
+func _process(delta):
+	end_game()
+
 func load_level(level_number):
 	#check the file path for a new scene(level)
 	var level_file_path = level_folder_path + "level_" + str(level_number) + ".tscn"
@@ -69,8 +72,6 @@ func add_collectible():        #adds up the score of items colleccted
 	items_collected += 1
 	hud.update_collectibles(items_collected)
 	if items_collected == 4:    #when 4 items collected then the portal is opened
-		var portal = get_tree().get_first_node_in_group("Level_Exit")
-		portal.open_portal()
 		hud.portal_opened()
 		
 func respawn_player():
@@ -81,12 +82,19 @@ func respawn_player():
 		respawn_collectibles()
 		reset_items_collected()
 		hud.reset_lives()
+		hud.portal_closed()
 	elif player.position.y >= 768:
 		reset_player_pos()
 		respawn_collectibles()
 		reset_items_collected()
+		hud.portal_closed()
 		hud.reset_lives()
 
 func reset_player_pos():
 	var start_pos = get_tree().get_first_node_in_group("PlayerPosition") as Node2D
 	player.teleport(start_pos.position)
+
+func end_game():
+	if current_level == 4:
+		hud.visible = false
+		player.camera.set_limit(SIDE_BOTTOM, 288)

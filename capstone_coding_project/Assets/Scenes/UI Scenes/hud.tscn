@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl8wj5mtuis1v"]
+[gd_scene load_steps=16 format=3 uid="uid://cl8wj5mtuis1v"]
 
 [ext_resource type="Script" uid="uid://dv0swoetlrixl" path="res://Assets/Scenes/UI Scenes/hud.gd" id="1_h3ky5"]
 [ext_resource type="LabelSettings" uid="uid://dio5fbypef33j" path="res://Assets/UI settings/new_label_settings.tres" id="2_6deb8"]
@@ -7,10 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://dnm5x1oisv0ek" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/heart.png" id="5_k7e04"]
 [ext_resource type="Texture2D" uid="uid://bejyb01xos2nl" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Square Buttons/Square Buttons/Pause Square Button.png" id="6_l0j8w"]
 [ext_resource type="Script" uid="uid://c2sxl34avt1n0" path="res://Assets/Scenes/UI Scenes/pause_overlay.gd" id="7_5810p"]
+[ext_resource type="Texture2D" uid="uid://blv6c8qq3yhy" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Square Buttons/Square Buttons/Info Square Button.png" id="7_vp17f"]
 [ext_resource type="Texture2D" uid="uid://bko1ftssd7tmx" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Large Buttons/Large Buttons/Resume Button.png" id="8_a5pjn"]
 [ext_resource type="LabelSettings" uid="uid://c66yf7ij88pcq" path="res://Assets/UI settings/paused_text_settings.tres" id="8_jyoso"]
 [ext_resource type="Texture2D" uid="uid://oowwsptrsgdq" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Large Buttons/Large Buttons/Menu Button.png" id="10_jyoso"]
-[ext_resource type="Texture2D" uid="uid://qe0l6xfim5yc" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Large Buttons/Large Buttons/Options Button.png" id="10_vp17f"]
+[ext_resource type="Script" uid="uid://cml2sa3tegy0" path="res://Assets/Code/info_page.gd" id="12_ue73l"]
+[ext_resource type="FontFile" uid="uid://cbvfwmb231qo1" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/kenney_kenney-fonts/Fonts/Kenney High Square.ttf" id="13_bv1ry"]
+[ext_resource type="Texture2D" uid="uid://ymckmgldrtaj" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Large Buttons/Large Buttons/Exit Button.png" id="14_bv1ry"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tkogq"]
+font = ExtResource("13_bv1ry")
+font_size = 48
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("collectible_label", "portal_label", "skip_button", "healthbar") groups=["HUD"]]
 layout_mode = 3
@@ -127,20 +134,30 @@ texture = ExtResource("5_k7e04")
 
 [node name="PauseButton" type="Button" parent="."]
 layout_mode = 1
-offset_left = 40.0
-offset_top = 16.0
-offset_right = 104.0
-offset_bottom = 96.0
+offset_left = 62.0
+offset_top = 51.0
+offset_right = 126.0
+offset_bottom = 131.0
 icon = ExtResource("6_l0j8w")
 flat = true
 expand_icon = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("pause_button")]
+[node name="InfoButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 147.0
+offset_top = 51.0
+offset_right = 211.0
+offset_bottom = 131.0
+icon = ExtResource("7_vp17f")
+flat = true
+expand_icon = true
+
+[node name="PauseOverlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("pause_button")]
 process_mode = 3
 script = ExtResource("7_5810p")
 pause_button = NodePath("../PauseButton")
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="PauseOverlay"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -155,7 +172,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+[node name="PauseTitle" type="Label" parent="PauseOverlay/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -169,7 +186,7 @@ text = "Game Paused"
 label_settings = ExtResource("8_jyoso")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -186,16 +203,81 @@ scale = Vector2(0.3, 0.3)
 theme_override_constants/separation = 35
 alignment = 1
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="PauseOverlay/Panel/VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("8_a5pjn")
 flat = true
 icon_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
-icon = ExtResource("10_vp17f")
-
-[node name="MenuButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="PauseOverlay/Panel/VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("10_jyoso")
+
+[node name="InfoPage" type="CanvasLayer" parent="." node_paths=PackedStringArray("info_button")]
+process_mode = 3
+script = ExtResource("12_ue73l")
+info_button = NodePath("../InfoButton")
+
+[node name="Panel" type="Panel" parent="InfoPage"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="InfoTitle" type="Label" parent="InfoPage/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 102.0
+offset_right = 240.0
+offset_bottom = 207.0
+grow_horizontal = 2
+text = "How To Play"
+label_settings = ExtResource("8_jyoso")
+horizontal_alignment = 1
+
+[node name="Instructions" type="Label" parent="InfoPage/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -326.0
+offset_top = 208.0
+offset_right = 310.0
+offset_bottom = 520.0
+grow_horizontal = 2
+text = "-Use Left and Right arrow key to move
+-SpaceBar to Jump
+-Collect Apples to Gain Access to Portal
+-Keep moving forward
+-Avoid the Rock enemies 
+-Don't Fall into the void"
+label_settings = SubResource("LabelSettings_tkogq")
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="InfoPage/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -120.0
+offset_right = 81.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("14_bv1ry")
+expand_icon = true

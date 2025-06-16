@@ -5,7 +5,8 @@ class_name PlayerController
 @export var jump_power = 10
 @export var camera: Camera2D
 @export var wall_jump_power = 15
-@export var camera_vertical_limit = 0
+@export var camera_top_limit = 0
+@export var camera_bottom_limit = 768
 @export var sprite: AnimatedSprite2D
 
 var dead = false
@@ -18,14 +19,16 @@ var wall_gravity = 110
 var pushback = 0
 
 
-
 func _ready():
 	hud = get_tree().get_first_node_in_group("HUD")
-	camera.set_limit(SIDE_TOP, camera_vertical_limit)
+	camera.set_limit(SIDE_TOP, camera_top_limit)
+	camera.set_limit(SIDE_BOTTOM, camera_bottom_limit)
 
 func _process(_delta):
 	if GameManager.current_level == 1:
 		camera.set_limit(SIDE_LEFT, -1152)
+	elif GameManager.current_level == 2:
+		camera.set_limit(SIDE_LEFT, -528)
 
 func _input(event):
 	# Jumping up functionality
@@ -48,20 +51,19 @@ func _input(event):
 		
 
 func _physics_process(delta):
-	# Add the gravity.
-	reset_player_pos()
+	GameManager.respawn_player()
+		# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	#Adjust gravity for wall slide
 	if is_on_wall() and not is_on_floor():
 		if velocity.y > wall_gravity:
 			velocity.y = wall_gravity
 		
-			
-		
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("move_left", "move_right")
 	if direction:
+		velocity.x = (direction + pushback) * speed * speed_Multiplier
+	elif hit:
 		velocity.x = (direction + pushback) * speed * speed_Multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_Multiplier)
@@ -72,16 +74,11 @@ func _physics_process(delta):
 func teleport(new_location):
 	position = new_location
 
-	
 func damaged():
 	hit = true
-	pushback = -3
-	velocity.y = -100
+	velocity.y = -200
 	hud.decrease_lives()
 	print("damage")
-	
-func reset_player_pos():
-		GameManager.respawn_player()
 
 func kill_jump():
-	velocity.y = jump_power*jump_Multiplier
+	velocity.y = -300

@@ -150,6 +150,7 @@ sprite = NodePath("AnimatedSprite2D")
 position = Vector2(11, -11)
 scale = Vector2(3.57422, 2.01892)
 sprite_frames = SubResource("SpriteFrames_gl6ml")
+animation = &"closed"
 autoplay = "default"
 flip_h = true
 

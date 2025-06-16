@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bktsv0ksd2b6a"]
+[gd_scene load_steps=37 format=3 uid="uid://bktsv0ksd2b6a"]
 
 [ext_resource type="Texture2D" uid="uid://bmoiwdxv2255i" path="res://Assets/Sprites/Pixel Adventure 1/Pixel Adventure 2/Enemies/Rocks/Rock1_Idle (38x34).png" id="1_4lndm"]
 [ext_resource type="Script" uid="uid://b1kuuejn3ik0i" path="res://Assets/Scenes/Traps and enemies scenes/rock_enemy.gd" id="1_ge5yb"]
 [ext_resource type="Texture2D" uid="uid://o3vkwwohng8s" path="res://Assets/Sprites/Pixel Adventure 1/Pixel Adventure 2/Enemies/Rocks/Rock1_Hit.png" id="2_qj5d4"]
+[ext_resource type="Texture2D" uid="uid://bbp6dvalw5dp2" path="res://Assets/Sprites/Pixel Adventure 1/Pixel Adventure 2/Enemies/Rocks/Rock1_Run (38x34).png" id="4_y1vr4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e57v7"]
 atlas = ExtResource("2_qj5d4")
@@ -64,6 +65,62 @@ region = Rect2(456, 0, 38, 34)
 atlas = ExtResource("1_4lndm")
 region = Rect2(494, 0, 38, 34)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_optd5"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(0, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmiuw"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(38, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l76o0"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(76, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgtff"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(114, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1ju1"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(152, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc7u3"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(190, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3h3k"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(228, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdeq8"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(266, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m14k"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(304, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxphv"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(342, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5ni3"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(380, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl0bu"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(418, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo8e8"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(456, 0, 38, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w08n2"]
+atlas = ExtResource("4_y1vr4")
+region = Rect2(494, 0, 38, 34)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e57v7"]
 animations = [{
 "frames": [{
@@ -120,6 +177,53 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_optd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmiuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l76o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgtff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1ju1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc7u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3h3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdeq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0m14k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxphv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5ni3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl0bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo8e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w08n2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 13.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4lndm"]
@@ -130,18 +234,19 @@ height = 43.0769
 radius = 16.0
 height = 32.0
 
-[node name="RockEnemy" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
-collision_layer = 258
+[node name="RockEnemy" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 2
 collision_mask = 2
+floor_constant_speed = true
+platform_on_leave = 2
 script = ExtResource("1_ge5yb")
 sprite = NodePath("EnemyAnimationSprite")
+patrolling_speed = 100
 
 [node name="EnemyAnimationSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9.53674e-07, 0)
 sprite_frames = SubResource("SpriteFrames_e57v7")
-animation = &"die"
-autoplay = "idle"
-frame_progress = 1.0
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.38419e-07, 2)

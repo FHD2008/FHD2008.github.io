@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=4 uid="uid://bicdo46oibtvo"]
+
+[ext_resource type="PackedScene" uid="uid://bgdklvicqg0gt" path="res://Assets/Scenes/Level_Functionality/Level_Template.tscn" id="1_lajnf"]
+[ext_resource type="FontFile" uid="uid://cbvfwmb231qo1" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/kenney_kenney-fonts/Fonts/Kenney High Square.ttf" id="2_4ja1l"]
+[ext_resource type="Texture2D" uid="uid://e6p7vh183fan" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Restart.png" id="3_lgq5c"]
+[ext_resource type="Script" uid="uid://c8j8dyfafxby4" path="res://Assets/Scenes/Levels/button.gd" id="4_fum52"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lgq5c"]
+font = ExtResource("2_4ja1l")
+font_size = 32
+font_color = Color(0.581448, 0.72824, 0.695503, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fum52"]
+font = ExtResource("2_4ja1l")
+
+[node name="LevelTemplate" instance=ExtResource("1_lajnf")]
+
+[node name="ParallaxCave1" parent="Parallax2D4" index="0"]
+position = Vector2(0, -5.33333)
+
+[node name="PlayerPosition" parent="." index="4"]
+position = Vector2(305, 79)
+
+[node name="Collectible" parent="collectibleNode" index="0"]
+position = Vector2(310, 194)
+
+[node name="Collectible2" parent="collectibleNode" index="1"]
+position = Vector2(219, 73)
+
+[node name="Collectible3" parent="collectibleNode" index="2"]
+position = Vector2(410, 71)
+
+[node name="Collectible4" parent="collectibleNode" index="3"]
+position = Vector2(-112, -147)
+
+[node name="LevelExit" parent="." index="8"]
+position = Vector2(-40, -120)
+
+[node name="CaveTileSet" parent="." index="9"]
+tile_map_data = PackedByteArray("AAASAP//AAAFABkAAAATAP//AAAGABkAAAAUAP//AAAFABkAAAAVAP//AAAGABkAAAAQAP//AAAFABkAAAARAP//AAAGABkAAAAWAP//AAAHABkAAAAXAAAAAAAIABoAAAAXAAEAAAAIABoAAAAXAAIAAAAIABsAAAAYAAIAAAAJABsAAAAZAAIAAAAJABsAAAAaAAIAAAAJABsAAAAbAAIAAAAKABsAAAAbAAMAAAAKABwAAAAbAAQAAAAKAB0AAAAbAAUAAAAKAB4AAAAbAAYAAAAKAB0AAAAbAAcAAAAKAB4AAAAbAAgAAAAKAB0AAAAbAAkAAAAKAB4AAAAbAAoAAAAKAB0AAAAbAAsAAAAKAB4AAAAbAAwAAAAKAB8AAAAbAA0AAAAKACAAAAAaAA0AAAAJACAAAAAZAA0AAAAJACAAAAAYAA0AAAAJACAAAAAXAA0AAAAIACAAAAAXAA4AAAAIACEAAAAXAA8AAAAIACEAAAAXABAAAAAIACIAAAAWABAAAAAHACIAAAAUABAAAAAFACIAAAAVABAAAAAGACIAAAASABAAAAAFACIAAAATABAAAAAGACIAAAAQABAAAAAFACIAAAARABAAAAAGACIAAAAPABAAAAAEACIAAAAOABAAAAADACIAAAAOAA8AAAADACEAAAAOAA4AAAADACEAAAAOAA0AAAADACAAAAANAA0AAAACACAAAAAMAA0AAAACACAAAAALAA0AAAABACAAAAALAAwAAAABAB8AAAALAAoAAAABAB0AAAALAAsAAAABAB4AAAALAAgAAAABAB0AAAALAAkAAAABAB4AAAALAAYAAAABAB0AAAALAAcAAAABAB4AAAALAAQAAAABAB0AAAALAAUAAAABAB4AAAALAAMAAAABABwAAAALAAIAAAABABsAAAAMAAIAAAACABsAAAANAAIAAAACABsAAAAOAAIAAAACABsAAAAPAAIAAAADABsAAAAPAAEAAAADABoAAAAPAAAAAAADABoAAAAPAP//AAADABkAAAAQAP7/AAAFABgAAAARAP7/AAAGABgAAAASAP7/AAAFABgAAAATAP7/AAAGABgAAAAUAP7/AAAFABgAAAAVAP7/AAAFABgAAAAWAP7/AAAGABgAAAAXAP7/AAAKABoAAAAYAP7/AAALABoAAAAYAP//AAALABsAAAAXAP//AAAKABsAAAAYAAAAAAAJABkAAAAYAAEAAAAJABoAAAAZAAEAAAAKABoAAAAaAAEAAAAKABoAAAAbAAEAAAAKABoAAAAcAAEAAAALABoAAAAcAAIAAAALABsAAAAcAAMAAAALABsAAAAcAAQAAAALABsAAAAcAAUAAAALABsAAAAcAAYAAAALABsAAAAcAAcAAAALABsAAAAcAAgAAAALABsAAAAcAAkAAAALABsAAAAcAAoAAAALABsAAAAcAAsAAAALABsAAAAcAAwAAAALABsAAAAbAA4AAAAKACEAAAAaAA4AAAAKACEAAAAZAA4AAAAKACEAAAAYAA4AAAAJACEAAAAcAA0AAAALACAAAAAcAA4AAAALACEAAAAYAA8AAAAJACIAAAAYABAAAAAJACIAAAAYABEAAAAJACMAAAASABEAAAAHACMAAAATABEAAAAIACMAAAAUABEAAAAFACMAAAAVABEAAAAGACMAAAAWABEAAAAHACMAAAAXABEAAAAIACMAAAAOABEAAAADACMAAAAPABEAAAAEACMAAAAQABEAAAAFACMAAAARABEAAAAGACMAAAANABEAAAACACMAAAANABAAAAACACIAAAANAA8AAAACACIAAAANAA4AAAACACEAAAAMAA4AAAABACEAAAALAA4AAAABACEAAAAKAA4AAAAAACEAAAAKAAgAAAAAACAAAAAKAAkAAAAAABwAAAAKAAoAAAAAAB0AAAAKAAsAAAAAAB4AAAAKAAwAAAAAAB8AAAAKAA0AAAAAACAAAAAKAAMAAAAAABsAAAAKAAQAAAAAABwAAAAKAAUAAAAAAB0AAAAKAAYAAAAAAB4AAAAKAAcAAAAAAB8AAAAKAAIAAAAAABsAAAAKAAEAAAAAABoAAAALAAEAAAABABoAAAAMAAEAAAABABoAAAANAAEAAAABABoAAAAOAAEAAAACABoAAAAOAAAAAAACABkAAAAPAP7/AAADABgAAAAOAP//AAACABkAAAAOAP7/AAACABgAAAA=")
+
+[node name="Label" type="Label" parent="." index="12"]
+offset_left = 233.0
+offset_top = 73.0
+offset_right = 389.0
+offset_bottom = 132.0
+text = "That's   All  For
+Today,  folks!!!"
+label_settings = SubResource("LabelSettings_lgq5c")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="13"]
+offset_left = 222.0
+offset_top = 8.0
+offset_right = 378.0
+offset_bottom = 67.0
+text = "Click here
+to Play Again"
+label_settings = SubResource("LabelSettings_fum52")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." index="14"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 341.0
+offset_top = 12.0
+offset_right = 365.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_lgq5c")
+expand_icon = true
+script = ExtResource("4_fum52")

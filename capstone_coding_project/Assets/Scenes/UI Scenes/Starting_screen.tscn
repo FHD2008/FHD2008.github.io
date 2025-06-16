@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyklmmnbq0exq"]
+[gd_scene load_steps=15 format=3 uid="uid://dyklmmnbq0exq"]
 
 [ext_resource type="Script" uid="uid://c3yl8ufc8dwrx" path="res://Assets/Scenes/UI Scenes/starting_screen.gd" id="1_nwnfb"]
 [ext_resource type="Texture2D" uid="uid://2rwfx478uln0" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Play.png" id="1_v3mkj"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bs0cmry7o0lrn" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/ParallaxCave1.png" id="7_qafew"]
 [ext_resource type="FontFile" uid="uid://cbvfwmb231qo1" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/kenney_kenney-fonts/Fonts/Kenney High Square.ttf" id="9_03dfl"]
 [ext_resource type="Texture2D" uid="uid://mwrh5gxtiktq" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Menu Buttons/Square Buttons/Square Buttons/Back Square Button.png" id="10_qafew"]
+[ext_resource type="Texture2D" uid="uid://cvwsifom38i76" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Levels/01.png" id="11_kj3cj"]
+[ext_resource type="Texture2D" uid="uid://dlinjltssdrto" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Levels/02.png" id="12_onc38"]
+[ext_resource type="Texture2D" uid="uid://bjwp1oj10uj6f" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Levels/03.png" id="13_hg17t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qafew"]
 font = ExtResource("9_03dfl")
@@ -133,3 +136,21 @@ offset_bottom = 112.0
 icon = ExtResource("10_qafew")
 flat = true
 expand_icon = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level1_Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("11_kj3cj")
+
+[node name="Level2_Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("12_onc38")
+
+[node name="Level3_Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("13_hg17t")
