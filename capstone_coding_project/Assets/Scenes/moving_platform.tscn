@@ -14,8 +14,6 @@ point_count = 2
 size = Vector2(96.7489, 11.3478)
 
 [node name="Moving_platform" type="Path2D" node_paths=PackedStringArray("path_follow_2d")]
-position = Vector2(0, -1)
-scale = Vector2(1, 0.986667)
 curve = SubResource("Curve2D_utp5j")
 script = ExtResource("1_brwi2")
 path_follow_2d = NodePath("PathFollow2D")

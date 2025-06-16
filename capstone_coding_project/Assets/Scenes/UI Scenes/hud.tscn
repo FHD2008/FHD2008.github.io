@@ -261,7 +261,8 @@ text = "-Use Left and Right arrow key to move
 -SpaceBar to Jump
 -Collect Apples to Gain Access to Portal
 -Keep moving forward
--Avoid the Rock enemies 
+-Avoid the Rock enemies
+-Jump on them to kill them 
 -Don't Fall into the void"
 label_settings = SubResource("LabelSettings_tkogq")
 horizontal_alignment = 1

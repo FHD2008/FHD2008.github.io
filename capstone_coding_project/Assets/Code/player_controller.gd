@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name PlayerController
+#manages all physics, behaviour and input of the character, player
 
 @export var speed = 10
 @export var jump_power = 10
@@ -13,24 +14,24 @@ var dead = false
 var hud: HUD
 var hit = false
 var direction = 0
-var speed_Multiplier = 20.0
-var jump_Multiplier = -35.0
-var wall_gravity = 110
-var pushback = 0
+const  speed_Multiplier = 20.0  #multiplied by the speed to give visually good looking motion
+const jump_Multiplier = -35.0   #multiplied by jump power 
+var wall_gravity = 110  #gravity on player while sliding on wall
+var pushback = 0   #pushback value when jumping off wall or getting knocked by enemy
 
 
-func _ready():
+func _ready(): #gets the HUD node, sets top and bottom camera scrolling limit
 	hud = get_tree().get_first_node_in_group("HUD")
-	camera.set_limit(SIDE_TOP, camera_top_limit)
+	camera.set_limit(SIDE_TOP, camera_top_limit)  
 	camera.set_limit(SIDE_BOTTOM, camera_bottom_limit)
 
-func _process(_delta):
+func _process(_delta):    #sets different limit on left side for camera in each level
 	if GameManager.current_level == 1:
 		camera.set_limit(SIDE_LEFT, -1152)
 	elif GameManager.current_level == 2:
 		camera.set_limit(SIDE_LEFT, -528)
 
-func _input(event):
+func _input(event):  #handles input for jumping, wall jumping and sliding
 	# Jumping up functionality
 	if event.is_action_pressed("jump"):
 		if is_on_floor():
@@ -51,12 +52,12 @@ func _input(event):
 		
 
 func _physics_process(delta):
-	GameManager.respawn_player()
+	GameManager.respawn_player()   #keeps checking for if player goes into void so to respawn it
 		# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta    #adds gravity
 	#Adjust gravity for wall slide
-	if is_on_wall() and not is_on_floor():
+	if is_on_wall() and not is_on_floor():   #sets gravity to wall gravity
 		if velocity.y > wall_gravity:
 			velocity.y = wall_gravity
 		
@@ -72,6 +73,7 @@ func _physics_process(delta):
 	
 	
 func teleport(new_location):
+	camera.position_smoothing_enabled = false
 	position = new_location
 
 func damaged():
