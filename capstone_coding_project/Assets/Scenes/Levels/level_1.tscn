@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=4 uid="uid://c4xe3lymsybcr"]
 
 [ext_resource type="PackedScene" uid="uid://bgdklvicqg0gt" path="res://Assets/Scenes/Level_Functionality/Level_Template.tscn" id="1_un3gw"]
-[ext_resource type="Texture2D" uid="uid://v8mi480joeil" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_gncsh"]
-[ext_resource type="Texture2D" uid="uid://b51ktctxwfq5m" path="res://Assets/Sprites/Pixel Adventure 1/Free/Terrain/Cave Tileset Pack/PNG files/CaveG.png" id="4_jb2kn"]
+[ext_resource type="Texture2D" uid="uid://v8mi480joeil" path="res://Assets/Sprites/Terrain/Terrain (16x16).png" id="2_gncsh"]
+[ext_resource type="Texture2D" uid="uid://b51ktctxwfq5m" path="res://Assets/Sprites/Terrain/Cave Tileset Pack/PNG files/CaveG.png" id="4_jb2kn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5fp7d"]
 texture = ExtResource("2_gncsh")

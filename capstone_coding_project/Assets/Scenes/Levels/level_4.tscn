@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=4 uid="uid://bicdo46oibtvo"]
 
 [ext_resource type="PackedScene" uid="uid://bgdklvicqg0gt" path="res://Assets/Scenes/Level_Functionality/Level_Template.tscn" id="1_lajnf"]
-[ext_resource type="FontFile" uid="uid://cbvfwmb231qo1" path="res://Assets/Sprites/Pixel Adventure 1/Free/Other/kenney_kenney-fonts/Fonts/Kenney High Square.ttf" id="2_4ja1l"]
-[ext_resource type="Texture2D" uid="uid://e6p7vh183fan" path="res://Assets/Sprites/Pixel Adventure 1/Free/Menu/Buttons/Restart.png" id="3_lgq5c"]
-[ext_resource type="Script" uid="uid://c8j8dyfafxby4" path="res://Assets/Scenes/Levels/button.gd" id="4_fum52"]
+[ext_resource type="FontFile" uid="uid://cbvfwmb231qo1" path="res://Assets/Sprites/Other/kenney_kenney-fonts/Fonts/Kenney High Square.ttf" id="2_4ja1l"]
+[ext_resource type="Texture2D" uid="uid://e6p7vh183fan" path="res://Assets/Sprites/Menu/Buttons/Restart.png" id="3_lgq5c"]
+[ext_resource type="Script" uid="uid://c8j8dyfafxby4" path="res://Assets/Code/button.gd" id="4_fum52"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lgq5c"]
 font = ExtResource("2_4ja1l")
@@ -31,9 +31,11 @@ position = Vector2(219, 73)
 position = Vector2(410, 71)
 
 [node name="Collectible4" parent="collectibleNode" index="3"]
+visible = false
 position = Vector2(-112, -147)
 
 [node name="LevelExit" parent="." index="8"]
+visible = false
 position = Vector2(-40, -120)
 
 [node name="CaveTileSet" parent="." index="9"]

@@ -9,7 +9,7 @@ extends Control
 func _ready():
 	play_button.pressed.connect(start_game)
 	levels_button.pressed.connect(open_levels_page)
-	return_button.pressed.connect(return_to_home)
+	return_button.pressed.connect(return_to_menu)
 	lvl_one_button.pressed.connect(func(): goto_level(1))
 	lvl_two_button.pressed.connect(func(): goto_level(2))
 	lvl_three_button.pressed.connect(func(): goto_level(3))
@@ -21,7 +21,7 @@ func start_game():
 func open_levels_page():
 	get_tree().change_scene_to_file("res://Assets/Scenes/UI Scenes/levels_page.tscn")
 
-func goto_level(level_number):
+func goto_level(level_number):    #skips directly to the level_number, from the levels page
 	if level_number == 1:
 		GameManager.starting_level = 1
 		GameManager.current_level = GameManager.starting_level
@@ -35,8 +35,8 @@ func goto_level(level_number):
 		GameManager.current_level = GameManager.starting_level
 		skip_to_game()
 		
-func skip_to_game():
+func skip_to_game():  #changes the scene to gameplay.tscn so levels can load up properly on the scene
 	get_tree().change_scene_to_file("res://Assets/Scenes/gameplay.tscn")
 
-func return_to_home():
+func return_to_menu():
 	get_tree().change_scene_to_file("res://Assets/Scenes/UI Scenes/Starting_screen.tscn")

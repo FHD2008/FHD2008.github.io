@@ -14,5 +14,5 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	if body is PlayerController and fire_on == true:   #checks if player has entered into the fire
-		player.damaged()   #calls damaged() function in the player 
+		player.damaged(-1)   #calls damaged() function in the player 
 	

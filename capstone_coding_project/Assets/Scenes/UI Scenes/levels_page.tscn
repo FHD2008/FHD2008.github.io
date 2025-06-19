@@ -11,6 +11,12 @@ offset_bottom = 8.0
 [node name="VBoxContainer" parent="." index="0"]
 visible = false
 
+[node name="PlayButton" parent="VBoxContainer" index="0"]
+icon = null
+
+[node name="LevelsButton" parent="VBoxContainer" index="1"]
+icon = null
+
 [node name="Label" parent="." index="2"]
 offset_left = -256.0
 offset_top = 24.0
@@ -25,6 +31,7 @@ offset_left = 40.0
 offset_top = 17.0
 offset_right = 120.0
 offset_bottom = 105.0
+icon = null
 
 [node name="GridContainer" parent="." index="4"]
 visible = true

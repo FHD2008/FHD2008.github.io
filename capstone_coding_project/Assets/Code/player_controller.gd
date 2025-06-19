@@ -76,8 +76,9 @@ func teleport(new_location):
 	camera.position_smoothing_enabled = false
 	position = new_location
 
-func damaged():
+func damaged(dir):
 	hit = true
+	pushback = dir*4 
 	velocity.y = -200
 	hud.decrease_lives()
 	print("damage")
